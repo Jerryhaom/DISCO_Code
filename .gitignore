@@ -1,0 +1,11 @@
+data/
+results/
+.Rhistory
+.RData
+.Rproj.user/
+.DS_Store
+__pycache__/
+*.py[cod]
+.Renviron
+renv/library/
+renv/staging/
