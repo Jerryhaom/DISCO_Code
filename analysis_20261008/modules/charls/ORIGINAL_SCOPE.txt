@@ -1,0 +1,157 @@
+CHARLS C17 endpoint resolution - independent sensitivity branch, 2026-10-08
+
+1. Scope and outcome
+This module builds auditable interval-censored mortality endpoints from actual
+participant-level alive/dead evidence. It does not invent exact blood, visit,
+or death dates and does not overwrite Table1, Meta, ED3b, ED8b, CURRENT, or Word.
+
+The original 11,601-person common Table1 sample and approved score scales are
+held fixed: SD(DISCO)=1.60976585242089; SD(log(DM))=0.39031674165343.
+Adjustment: linear age, sex, smoking, drinking, and binary education. Education
+is inherited from the accepted Table1 preparation, including its approved mode
+imputation. No BMI, physical activity, or additional covariate was added here.
+
+Observed-wave branch: N=11,370, deaths=1,096. The 231 baseline-only participants
+are excluded because no post-baseline alive/dead evidence exists. Among the
+1,088 previously unverified 2018 censored records, 617 are confirmed alive in
+2015 and 240 in 2013, so they are censored at their actual last observed wave.
+There are zero contradictions between the 2013/2015/2018 wave status sources.
+
+Strict retrospective branch: N=11,370, deaths=1,106. Ten unambiguous Gregorian
+deaths reported in the 2020 exit interview occurred in 2015-2017, after baseline
+and before all 2018 interviews, with no later alive contradiction. They are
+incorporated conservatively as (last alive wave, before2018 wave] intervals.
+One previously baseline-only person is recovered; one contradictory record
+(reported Gregorian death before a documented later alive interview) is
+isolated. Another 2011 death report in a baseline-only participant is not used
+because its order relative to the blood draw cannot be proved. Deaths reported
+in 2018 or in a lunar calendar are not silently added to the original window.
+These are reported dates, not administratively certified death records.
+
+2. Actual new results
+Metric       Original Cox HR (95% CI)      Observed-wave interval PH
+DISCO        1.44068 (1.36378,1.52193)      1.46103 (1.38126,1.54541)
+log(DM)      1.42349 (1.35575,1.49461)      1.43480 (1.36256,1.51088)
+
+Metric       Strict retrospective interval PH     P
+DISCO        1.46528 (1.38309,1.55235)             1.76532e-38
+log(DM)      1.43862 (1.36820,1.51266)             8.66747e-46
+
+The semiparametric proportional-hazards likelihood uses observed inspection
+order and arbitrary baseline survival increments. Coordinates 0/2/4/7 label
+the 2011/2013/2015/2018 observation waves, not precise individual elapsed dates.
+Recoding to 0/1/2/3 leaves every fitted coefficient identical. Weibull and
+exponential interval-PH fits are additional parametric checks that DO depend
+on the nominal spacings; they are not the preferred interval model.
+
+Each branch was run in two separate R processes. Both scores used 200 actual
+participant-level bootstrap samples for covariance, with doRNG per-iteration
+streams and fixed seeds. Point estimates, every bootstrap coefficient, SE,
+CI and P agree exactly between repeats; all bootstrap matrices are finite;
+model warning count=0. Raw-score versus standardized coefficient errors are
+<2e-8 in the observed-wave branch. This is technical reproducibility, not a
+claim that reported dates are exact or that PH assumptions are guaranteed.
+
+3. Prediction measures and propagation
+Ordinary Harrell C is not reported for these interval-censored endpoints.
+The historical crude C values remain historical wave-assigned comparisons.
+The optional identifiable-pair concordance is labelled separately; it uses
+only pairs with upper_i <= lower_j, excludes uncertain ordering, counts ties
+as one half, and is NOT an ordinary Harrell C or a confidence interval.
+
+Meta sensitivity reuses the locked DerSimonian-Laird pooling function. Other
+four cohort inputs are unchanged byte-for-value, with no cohort model refits.
+                    Original pooled    Observed-wave    Strict retrospective
+DISCO HR            1.47908            1.48571          1.48712
+log(DM) HR          1.35447            1.35660          1.35740
+The leave-CHARLS-out results are exactly unchanged for both sensitivities.
+The per-cohort SD remains the original cohort SD, never a re-scaled subset SD.
+
+ED3b source is Result4/Validate_Charls.R:205-220 (score quartiles) and257-299
+(attained-age KM); ED8b is Result5/Asso_DISCO_FI.R:569-581 (frailty/Q1-Q4
+selection) and609-640 (attained-age KM). Scores and time/status from both
+original saved objects were matched by participant ID to the Table1 frame.
+ED8b original risk set5472/654 is reproduced; observed-wave branch5371/654;
+strict retrospective branch5371/661. No exact-age-axis replacement is claimed.
+ED3b includes separate DISCO and DM selections with overlapping participants;
+its four group N/deaths must NOT be summed as a unique cohort denominator.
+
+4. Files and privacy
+input/: raw-source/schema manifests, original-publication evidence, official
+        public codebooks, dependency archive hashes and exact package versions.
+code/: source inventory, endpoint construction, actual official interval-PH
+       fits, bootstrap repeat, aggregation/Meta/group QA, plotting, final QA.
+results/: endpoint evidence and conflicts, aggregate model and repeat checks.
+tables/: per-model sensitivity and Meta inputs/pooling/LOO; ED3b/ED8b groups.
+figures/: two separately labelled new sensitivity PDFs, not journal originals.
+logs/: runtime sessions, Poppler-rendered QA images, final execution report.
+private/input/: actual endpoint frames, original source tables, panel groups.
+private/models/: participant-bearing fits; no public ZIP or GitHub inclusion.
+private directories are0700 and participant files0600. Public tables contain
+no participant identifiers, individual dates, individual scores or model data.
+
+The local search covered94 CHARLS/Frailty source paths,40 unique SHA values,
+43 actual source tables plus the top-level saved Table1/ED8 objects and producer
+paths. The locally available2011 blood table has17 columns but no individual
+collection date; demographic/sample objects also lack the needed baseline
+interview date. Personal2015/2018 interview year/month are present, but they
+are NOT mortality dates and cannot recover the absent2011 blood anchor.
+
+Official-source checks, not guesses from filenames:
+- Harmonized CHARLS Version D pp43-44: interview year/month variables are
+  visit dates; p51: raw death month/year may use lunar calendar and conversion
+  conventions. The p51 note concerns the June2021 release, not all later releases.
+  https://charls.pku.edu.cn/en/team/Codebook.pdf
+- Official2020 codebook pp413-414 (PDF pages417-418) reports770 exit records,
+  only107 death year/month/day observations;588 solar and181 lunar calendars.
+  The local table matches these counts exactly. In the Table1 cohort421 match;
+  60 have valid year/month/day:52 solar,7 lunar,1 calendar unspecified.
+  https://charls.charlsdata.com/Public/ashelf/public/uploads/document/2020-charls-wave5/application/CHARLS_2020_Codebook.pdf
+- Official icenReg manual: semiparametric PH interval likelihood, (L,U]
+  convention, right censoring with U=Inf/NA, bootstrap covariance.
+  https://search.r-project.org/CRAN/refmans/icenReg/html/ic_sp.html
+  https://www.jstatsoft.org/article/view/v081i12
+
+5. Re-run and dependency details
+R=Rscript. Official CRAN binary packages icenReg2.0.16 and
+MLEcens0.1-7.1 were installed ONLY in this module's rlib. Source installation
+failed because the machine lacks the configured Fortran link runtime; official
+macOS arm64 binaries solved this without changing the global R library. Local
+X11/Cairo libraries are absent, so plotting uses grDevices::pdf with Helvetica.
+Statistics and colors were not changed to solve a graphics-device dependency.
+The failed Cairo attempt's automatic Rplots.pdf was inspected, identified as
+this module's curve plot, and moved into logs/qa/failed_cairo_default_device.pdf
+for recoverable diagnostics; it is not a selected or deliverable figure.
+
+Run in Results_final, with authorized local participant files available:
+Rscript code/inventory_sources.R
+Rscript code/build_interval_endpoints.R
+Rscript code/build_retrospective_sensitivity.R
+Rscript code/fit_interval_sensitivity.R primary 200
+Rscript code/fit_interval_sensitivity.R repeat 200
+Rscript code/fit_interval_sensitivity.R retrospective_primary 200 retrospective_strict
+Rscript code/fit_interval_sensitivity.R retrospective_repeat 200 retrospective_strict
+Rscript code/summarize_and_verify.R
+Rscript code/plot_interval_sensitivity.R
+python3 code/final_qa.py
+Use the full module path before code/ in these commands. Parallel bootstrap
+requires local worker sockets; it does not transmit participant data externally.
+The original accepted exclusion-only20 models were read, not rerun here.
+
+6. What can close, and what remains an author choice
+Can close technically: old object/ID provenance, local status/last-alive chain,
+the inappropriate assumption that every unmatched2018 participant survived8
+years, auditable interval endpoints, true interval-PH/parametric/Meta sensitivity,
+strict recovery of10 retrospective deaths, repeat and figure QA.
+
+Cannot claim: complete exact dates for everyone, exact attained-age follow-up
+from blood, exact IPCW time-dependent AUC, or full raw date certification of
+the historical Table1/ED3b/ED8b results. This is not an unbounded request to wait
+for perfect dates: a workable interval analysis has actually been completed.
+
+Author choice: put this verified branch into SI and retain the old primary
+models with an explicit wave-assigned limitation, OR adopt the interval-PH
+association as CHARLS primary and synchronize Table1/Meta/Methods/Response,
+replacing attained-age legacy curves with the wave-interval display. No new
+science choice was silently applied here. The conflicting record is isolated
+in the sensitivity, not adjudicated as laboratory/registry truth.

@@ -257,6 +257,9 @@ run("ED2c", function() {
   e$en <- readRDS("En.UKB2.rds")
   replay_block("Result2_Cal_ClinicalProt_R_132_133", e)
   stopifnot(length(e$en)==nrow(e$pd),cor(e$pd$hd,e$en,method="spearman")>.999)
+  # Use the positive hd column in the locked participant frame. The similarly
+  # named standalone HD.UKB.clinical.prot.rds is a different saved score vector.
+  stopifnot(all(is.finite(e$pd$hd)),all(e$pd$hd>0))
   replay_block("Result2_Cal_ClinicalProt_R_135_149", e)
 })
 

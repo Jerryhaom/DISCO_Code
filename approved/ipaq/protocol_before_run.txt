@@ -1,0 +1,20 @@
+UKB IPAQ sensitivity analysis
+Protocol recorded before fitting on 2026-10-06.
+
+Author request: add IPAQ adjustment in UKB as a sensitivity analysis for the reviewer response. This does not change the primary Table 1 or require physical activity adjustment in the other cohorts.
+
+Population: existing UKB clinical DISCO/DM mortality population. Score construction and stored time/status are unchanged. Match raw covariates by unique eid/ID; abort on duplicate or unmatched identifiers.
+Metrics: stored DISCO (mc) and natural-log-transformed DM (hd), fitted separately.
+Core model: age + sex + smoking + drinking + education + race, exactly the current Table 1 coding. No BMI added.
+Missing core covariates: preserve current Table 1 mode imputation; missing/empty race is explicitly imputed as White as approved by the author. Education uses Table 1 binary coding, not the historical R01 multicategory model.
+IPAQ: categories 0=low, 1=moderate, 2=high; treat as an unordered categorical factor with low as reference. Missing IPAQ is not imputed. Source is the existing IPAQ column, checked against covariates_raw_full.rds; the field mapping is UKB 22032 / coding 100700. No new IPAQ derivation or threshold search.
+Three reported model rows per metric: (1) current core model in the full Table 1 population for replication; (2) core model in the IPAQ-observed common population; (3) core model plus IPAQ in that identical common population. The last two are the primary sensitivity comparison.
+HR scale: one within-population sample SD (N-1 denominator). The before/after IPAQ models use exactly the same score SD, participant IDs and deaths. Full-population replication uses its own analysis-population SD.
+Cox method: ties=efron, two-sided Wald P and 95% CI. Export log-space P evidence when numerical P underflows; do not describe P as theoretically zero.
+Verification: full-population estimates must reproduce current Table 1; two new R sessions must agree; independently prepare the approved Table 1 data and fit the unscaled scores to verify the sensitivity estimates. Check source hashes before/after, model N/deaths, finite coefficients and warnings.
+No model selection based on significance. Retain null or adverse results if present. No claims of causality, elimination of all confounding, external validation, or proportional-hazards validation from this sensitivity alone.
+Public output: aggregates, formulas, sample counts, SDs, warnings and hashes only. Do not save participant IDs, fitted individual predictions or model x/y objects.
+
+Sources
+https://biobank.ctsu.ox.ac.uk/crystal/field.cgi?id=22032
+https://biobank.ctsu.ox.ac.uk/crystal/coding.cgi?id=100700

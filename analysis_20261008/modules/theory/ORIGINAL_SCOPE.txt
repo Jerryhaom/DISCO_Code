@@ -1,0 +1,15 @@
+数学技术闭合，2026-10-08
+
+入口：results/Mathematical_Supplement_EXACT_CONDITIONS_CANDIDATE.pdf；results/final_acceptance.json。
+仅替当前冻结16页数学材料第3–8页，其余10页包括所有仿真图页保留。原件输入SHA固定ed55e3d...，不改CURRENT。
+
+本轮实际完成：
+1. read-only提取registry选择的Main/SI/Response有效修订文字，旧删除不误当当前正文。
+2. exact有限n covariance/entropy/Pearson、一般KL广义谱、mean项、Taylor bound、Rényi条件证明。
+3. 120矩阵案例+40Rényi比较+200Pearson remainder；8个实际S3/S4冻结对象8,000行、160直接cor增补验证。绝对entropy仅诊断，不换主定义。
+4. 六页理论正文、16页实际Poppler渲染、未改10页内容流和像素精确比对、六页实际查看。
+5. 21处Main/SI/Response原句→新句全量精确匹配；提供root按字段保护的真修订层同步，不直接动源Word/EndNote。
+
+目录：input冻结快照及来源；code可重跑；results证明/候选/数值/patch/QA；logs实际页图/执行；figures、tables预留本模块产物分类（本任务未添加主分析图表）。
+按code/extract_current_sources.py → verify_identities.py → check_actual_geometry.R → build_sentence_specs.py → build_theory_pdf.py → verify_math_pdf.py重跑；finalize_acceptance.py须在实际查看3–8页后使用。
+PROOFS_AND_SCOPE.txt为中文严格推导与责任边界；不把正常作者终审当未完成技术问题。所有原数据/原图/原文档未覆盖。

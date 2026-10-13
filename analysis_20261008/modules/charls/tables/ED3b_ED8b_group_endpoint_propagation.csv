@@ -1,0 +1,31 @@
+"panel","group","state","N","deaths","sensitivity_excluded_N","confirmed_alive2013","confirmed_alive2015","confirmed_alive2018"
+"ED3b_CHARLS","DISCO Low Risk","historical_wave_assigned",2901,125,0,2639,2634,2486
+"ED3b_CHARLS","DISCO Low Risk","observed_wave_interval",2853,125,48,2639,2634,2486
+"ED3b_CHARLS","DISCO High Risk","historical_wave_assigned",2900,568,0,2574,2366,2075
+"ED3b_CHARLS","DISCO High Risk","observed_wave_interval",2839,568,61,2574,2366,2075
+"ED3b_CHARLS","DM Low Risk","historical_wave_assigned",2901,126,0,2630,2620,2468
+"ED3b_CHARLS","DM Low Risk","observed_wave_interval",2844,126,57,2630,2620,2468
+"ED3b_CHARLS","DM High Risk","historical_wave_assigned",2900,516,0,2579,2398,2143
+"ED3b_CHARLS","DM High Risk","observed_wave_interval",2840,516,60,2579,2398,2143
+"ED8b_CHARLS","Robust 1","historical_wave_assigned",1567,43,0,1413,1418,1348
+"ED8b_CHARLS","Robust 1","observed_wave_interval",1536,43,31,1413,1418,1348
+"ED8b_CHARLS","Robust 4","historical_wave_assigned",1311,178,0,1186,1119,1011
+"ED8b_CHARLS","Robust 4","observed_wave_interval",1291,178,20,1186,1119,1011
+"ED8b_CHARLS","Prefrail 1","historical_wave_assigned",871,41,0,808,808,760
+"ED8b_CHARLS","Prefrail 1","observed_wave_interval",864,41,7,808,808,760
+"ED8b_CHARLS","Prefrail 4","historical_wave_assigned",959,169,0,865,801,713
+"ED8b_CHARLS","Prefrail 4","observed_wave_interval",940,169,19,865,801,713
+"ED8b_CHARLS","Frail 4","historical_wave_assigned",533,198,0,438,378,295
+"ED8b_CHARLS","Frail 4","observed_wave_interval",516,198,17,438,378,295
+"ED8b_CHARLS","Frail 1","historical_wave_assigned",231,25,0,204,203,192
+"ED8b_CHARLS","Frail 1","observed_wave_interval",224,25,7,204,203,192
+"ED3b_CHARLS","DISCO Low Risk","observed_wave_interval_2020_retrospective",2854,126,47,2639,2634,2486
+"ED3b_CHARLS","DISCO High Risk","observed_wave_interval_2020_retrospective",2838,574,62,2573,2365,2074
+"ED3b_CHARLS","DM Low Risk","observed_wave_interval_2020_retrospective",2845,127,56,2630,2620,2468
+"ED3b_CHARLS","DM High Risk","observed_wave_interval_2020_retrospective",2839,522,61,2578,2397,2142
+"ED8b_CHARLS","Robust 1","observed_wave_interval_2020_retrospective",1537,44,30,1413,1418,1348
+"ED8b_CHARLS","Robust 4","observed_wave_interval_2020_retrospective",1291,179,20,1186,1119,1011
+"ED8b_CHARLS","Prefrail 1","observed_wave_interval_2020_retrospective",864,41,7,808,808,760
+"ED8b_CHARLS","Prefrail 4","observed_wave_interval_2020_retrospective",939,171,20,864,800,712
+"ED8b_CHARLS","Frail 4","observed_wave_interval_2020_retrospective",516,201,17,438,378,295
+"ED8b_CHARLS","Frail 1","observed_wave_interval_2020_retrospective",224,25,7,204,203,192

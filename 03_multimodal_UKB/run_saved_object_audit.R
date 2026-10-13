@@ -14,6 +14,7 @@ disco_init_module("03_multimodal_UKB")
 # Audit saved UKB multimodal objects. This does not modify legacy Result2 files.
 
 options(stringsAsFactors = FALSE)
+suppressPackageStartupMessages({library(survival); library(glmnet)})
 r2 <- disco_path("Result2")
 out_dir <- "outputs"
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
@@ -45,7 +46,7 @@ for (label in names(datasets)) {
     fit <- survival::coxph(as.formula(formula_text), data = d)
     s <- summary(fit)
     cox_rows[[length(cox_rows) + 1L]] <- data.frame(
-      modality = label, formula = formula_text, n = nobs(fit), events = fit$nevent,
+      modality = label, formula = formula_text, n = fit$n, events = fit$nevent,
       c_index = unname(s$concordance[1]), se = unname(s$concordance[2])
     )
   }
@@ -65,6 +66,7 @@ model_audit <- do.call(rbind, lapply(model_files, function(f) {
   )
 }))
 
+disco_validate_cox_rows(do.call(rbind, cox_rows))
 write.csv(do.call(rbind, audit), file.path(out_dir, "saved_object_audit.csv"), row.names = FALSE)
 write.csv(do.call(rbind, cox_rows), file.path(out_dir, "cox_recalculation.csv"), row.names = FALSE)
 write.csv(model_audit, file.path(out_dir, "lasso_model_audit.csv"), row.names = FALSE)

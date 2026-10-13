@@ -1,0 +1,59 @@
+Candidate wording only. Not inserted into manuscript or response.
+
+Methods:
+For CHARLS, mortality evidence was reconciled across the2013,2015 and2018
+follow-up waves. Participants were interval-censored between their last
+confirmed alive wave and their first confirmed deceased wave; surviving
+participants were right-censored at their last confirmed alive wave rather
+than assigned the maximum follow-up. Participants with baseline-only evidence
+were excluded. A semiparametric interval-censored proportional-hazards model
+was fitted with age, sex, smoking, drinking and education, preserving the
+DISCO and log(DM) standard deviations from the original common analysis
+population. Covariance was estimated from200 participant bootstrap samples.
+In a separate retrospective sensitivity, ten unambiguous Gregorian deaths
+before2018 reported in the2020 exit interview were added, while one
+death-date/later-alive contradiction was isolated. No precise blood-draw or
+individual elapsed death dates were imputed.
+
+Results:
+The observed-wave interval analysis included11,370 participants and1,096
+deaths. The adjusted HR per original SD was1.461 (95% CI1.381-1.545) for
+DISCO and1.435 (1.363-1.511) for log(DM). The strict retrospective analysis
+included1,106 deaths and yielded HRs of1.465 (1.383-1.552) and1.439
+(1.368-1.513), respectively. The five-cohort pooled HRs changed from1.479
+to1.487 for DISCO and from1.354 to1.357 for log(DM) when the strict
+CHARLS sensitivity replaced only the CHARLS aggregate. This sensitivity
+supports the direction of association but does not certify precise individual
+follow-up dates or convert ordinary apparent ROC into time-dependent AUC.
+
+HR figure caption:
+CHARLS mortality associations under different follow-up representations.
+Original Cox refers to the retained historical wave-assigned endpoint.
+Interval PH uses observed alive/dead intervals; retrospective interval PH
+also incorporates ten compatible pre2018 Gregorian deaths recovered from
+the2020 exit interview and isolates one contradictory record. Weibull and
+exponential PH are nominal-wave-spacing parametric sensitivities of the
+1,096-death branch. All models adjust for age, sex, smoking, drinking and
+education; scores use the same original analysis-population SD. Points are
+HRs; bars are95% CIs. Interval-PH covariance uses200 reproducible bootstrap
+resamples. Ordinary Harrell C is not asserted for interval endpoints.
+
+Survival figure caption:
+CHARLS interval-estimated survival at observed follow-up waves. The original
+score-quartile and frailty grouping rules were retained, with last-alive
+censoring and interval deaths. Points show Turnbull NPMLE survival at the
+observation-wave boundaries; connecting lines are guides, not exact-time KM
+steps or fitted continuous death-time trajectories. These panels use the
+1,096-death observed-wave branch, not the1,106-death retrospective branch.
+The horizontal axis denotes survey waves, not exact personal elapsed or
+attained age. Confidence bands and a log-rank P are not presented.
+
+Response concept:
+We reconstructed the CHARLS last-alive/death evidence rather than treating
+all missing follow-up records as alive through the maximum period. We also
+checked the public death-date fields against the official source dictionary
+and conducted interval-censored and compatible retrospective-date
+sensitivities with fixed original score scales and covariates. Associations
+were similar across these analyses. We explicitly distinguish the supported
+wave-interval analysis from exact individual follow-up, which cannot be
+recovered for every participant from the locally available baseline files.

@@ -25,12 +25,23 @@ mc18 <- readRDS(file.path(organ, "UKB.tissue.mc2.rds"))
 odis <- readRDS(file.path(organ, "UKB.odis.rds"))
 pc18 <- readRDS(file.path(organ, "Tissue.pcorr.noverlap2.rds"))
 
+numeric_finite <- function(x) {
+  if(is.data.frame(x))sum(vapply(x,function(z)if(is.numeric(z))sum(is.finite(z)) else 0,numeric(1)))
+  else sum(is.finite(x))
+}
+numeric_total <- function(x) {
+  if(is.data.frame(x))sum(vapply(x,function(z)if(is.numeric(z))length(z) else 0,numeric(1)))
+  else length(x)
+}
+objects <- list(mc36,mc18,odis,pc18)
 audit <- data.frame(
   object = c("UKB.tissue.mc.rds", "UKB.tissue.mc2.rds", "UKB.odis.rds", "Tissue.pcorr.noverlap2.rds"),
   rows = c(nrow(mc36), nrow(mc18), nrow(odis), nrow(pc18)),
   cols = c(ncol(mc36), ncol(mc18), ncol(odis), ncol(pc18)),
-  finite_values = c(sum(is.finite(mc36)), sum(is.finite(mc18)), sum(is.finite(as.matrix(odis))), sum(is.finite(pc18))),
-  total_values = c(length(mc36), length(mc18), length(odis), length(pc18)),
+  finite_values = vapply(objects,numeric_finite,numeric(1)),
+  total_values = vapply(objects,function(x)prod(dim(x)),numeric(1)),
+  numeric_cells = vapply(objects,numeric_total,numeric(1)),
+  finite_value_scope = "numeric cells only; character metadata is not a non-finite number",
   stringsAsFactors = FALSE
 )
 
@@ -58,7 +69,9 @@ metadata <- data.frame(
   n = nrow(odis),
   events = sum(odis$status == 1, na.rm = TRUE),
   invalid_status = sum(!is.na(odis$status) & !odis$status %in% c(0, 1)),
-  duplicated_metadata = anyDuplicated(odis$age) > 0,
+  repeated_age_values = anyDuplicated(odis$age) > 0,
+  participant_id_column = NA_character_,
+  duplicated_participant_ids = NA,
   na_total = sum(is.na(odis)),
   stringsAsFactors = FALSE
 )

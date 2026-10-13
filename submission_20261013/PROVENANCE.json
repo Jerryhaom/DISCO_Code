@@ -1,0 +1,30 @@
+[
+  {
+    "module": "dm/fit_logDM.R",
+    "source": "03_multimodal_UKB/DM_logHR_unification_20261011/code/fit_logDM.R",
+    "source_sha256": "e288c5a5e59f2569c6928cdfc316f1023a4d3d47bd82b670fe0af86025a92940",
+    "release_sha256": "f02b1f3c3439a8ca4649b80a6bd5ae8f0722f11d2d08d70d78bceb2d5df9ca38",
+    "edits": "Environment-based input/output/library paths; portable Cairo PDF device. Statistical expressions unchanged."
+  },
+  {
+    "module": "dm/plot_Fig3c.R",
+    "source": "03_multimodal_UKB/DM_logHR_unification_20261011/code/plot_Fig3c.R",
+    "source_sha256": "28429ef69c38f7402899f31ca61a278d9065f286dbba8bcebabad33428e67fdb",
+    "release_sha256": "b2e5f4a7491803b8f0ce7e793d3ebcefa94d1cd96847e756ab58606cf979e6c8",
+    "edits": "Environment-based input/output/library paths; portable Cairo PDF device. Statistical expressions unchanged."
+  },
+  {
+    "module": "matched/fit_matched.R",
+    "source": "09_figures_tables/Supplementary_methods_focus_20261011/code/fit_matched.R",
+    "source_sha256": "01baba3f3e9b93acff5dc031365d979b19950355789141bae3e736d06862f2da",
+    "release_sha256": "d13258c413f206951f086f5e55a9702a9134506c9f0d9d3dbcfedccb9b004ff1",
+    "edits": "Environment-based input/output/library paths; portable Cairo PDF device. Statistical expressions unchanged."
+  },
+  {
+    "module": "matched/plot_matched.R",
+    "source": "09_figures_tables/Supplementary_methods_focus_20261011/code/plot_matched.R",
+    "source_sha256": "a44f9729a4ec5e7e2fb6b4351ca51a2c2d0f5f3e3e1f5e24d1dae3c394e11f70",
+    "release_sha256": "8890b6bd01d0886f1dd2c409a6f79ebd2f26d9f987e7560db81cee3fb6ed0955",
+    "edits": "Environment-based input/output/library paths; portable Cairo PDF device. Statistical expressions unchanged."
+  }
+]

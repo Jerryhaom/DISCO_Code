@@ -1,0 +1,54 @@
+[
+  {
+    "source": "Results_final/05_organ_network/organ_clock_comparison/20261002_d_original/01_compute.R",
+    "sha256": "3e0de0220985016a92b84c0fb827999eacb5ff29d13b1e150c3f607daeda468c"
+  },
+  {
+    "source": "Results_final/05_organ_network/organ_clock_comparison/20261002_d_original/02_plot.R",
+    "sha256": "bbe24c72c51b56c82ea86efef5cf87988c35229dcf4bc7d00b31f34bd36a6666"
+  },
+  {
+    "source": "Results_final/05_organ_network/organ_clock_comparison/20261002_rebuilt_figures/02_plot.R",
+    "sha256": "5c0a1672b88479c113ad7d9ea1c51db3e87740ed516b55368f9efd6968f2b8e4"
+  },
+  {
+    "source": "Results_final/05_organ_network/organ_clock_comparison/20261003_matched_protein_sensitivity/01_compute.R",
+    "sha256": "b443b9f4311224d0eae49fc542776e9e2b9984d27facf9bb275dcdef9fdf8772"
+  },
+  {
+    "source": "Results_final/05_organ_network/organ_clock_comparison/20261003_matched_protein_sensitivity/02_plot.R",
+    "sha256": "9b2528c111072d9d3bed0c5de34606b27165b1aad2114c0c5dc5ed8c62aaa30a"
+  },
+  {
+    "source": "Results_final/05_organ_network/corrected_organ/20260926/exact_score.cpp",
+    "sha256": "2c405c4d2f06278a1c62b6ed02adacda95a8d2ee38fa3ccebb25b716862ec834"
+  },
+  {
+    "source": "Results_final/04_external_validation/HRS_imputed_reference/20261001/03_functions.R",
+    "sha256": "05c29fbcbd11696666c2e1a14cd82f32ff33d40728d3051ffa5e62f832bb5c13"
+  },
+  {
+    "source": "Results_final/04_external_validation/HRS_imputed_reference/20261001/median/01_compute.R",
+    "sha256": "86a0238885e18e83f9579c936ee6e6df3a7857c27eca3075e04a4dd6627e8d66"
+  },
+  {
+    "source": "Results_final/04_external_validation/HRS_imputed_reference/20261001/median/05_independent_audit.R",
+    "sha256": "fa014b3a7f7e900f16835f2f4970d754156d05f8aea306f4c597d15fa348d370"
+  },
+  {
+    "source": "Simulation/Sim_Distances.R",
+    "sha256": "c3dfe2f966a78eb5111747145c19f1b145b715c2db31499b15543bb7fdcff9e7"
+  },
+  {
+    "source": "Results_final/01_method_definition/corrected_simulation/20260926/recompute_geometry.R",
+    "sha256": "967fcdba163f39ab4b0229e4c137b85b7cdad24d9146cf1294054c6379af5780"
+  },
+  {
+    "source": "Results_final/05_organ_network/organ_clock_comparison/20261002_rebuilt_figures/01_prepare_plot_data.R",
+    "sha256": "04d8c412f30cc4a4e6497e5c21187926948700aec43530d91ec6e68406132b96"
+  },
+  {
+    "source": "Results_final/05_organ_network/organ_clock_comparison/20260928/03_plot_panels.R",
+    "sha256": "bc8ecf8ee98a74bd6bfa3940d3e35f8532bfbd7d95de30ff0bede97c5842e2ad"
+  }
+]

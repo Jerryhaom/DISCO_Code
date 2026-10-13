@@ -1,0 +1,26 @@
+#!/usr/bin/env Rscript
+entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(entry))
+if(nzchar(Sys.getenv('DISCO_R_LIB'))) .libPaths(c(Sys.getenv('DISCO_R_LIB'),.libPaths()))
+suppressPackageStartupMessages({library(ggplot2);library(patchwork);library(data.table);library(jsonlite);library(grid)})
+setDTthreads(1);Sys.umask('0077')
+original<-fread(file.path(out,'numeric/panel_d_Cindex.csv'),data.table=FALSE);original$available<-TRUE
+matched<-fread(file.path(out,'numeric/panel_d_matched_Cindex.csv'),data.table=FALSE)
+d<-rbind(original,matched);stopifnot(nrow(d)==90,all(is.finite(d$C[d$available])),all(is.na(d$C[!d$available])))
+fwrite(d,file.path(out,'numeric/panel_d_matched_combined_Cindex.csv'))
+d$score<-factor(d$score,levels=c('Goeminne','Oh','DISCO_Goeminne','DISCO_Oh','DISCO'));organs<-unique(d$organ);labs<-setNames(d$display[match(organs,d$organ)],organs)
+src<-parse(file.path(file.path(Sys.getenv('DISCO_DATA_ROOT'),'Results_final/05_organ_network/organ_clock_comparison'),'20261002_rebuilt_figures/02_plot.R'));assignments<-Filter(function(e)is.call(e)&&identical(e[[1]],as.name('<-')),as.list(src));pick<-function(n)assignments[[which(vapply(assignments,function(e)identical(e[[2]],as.name(n)),FALSE))]]
+eval(pick('font'));font<-font+theme(axis.text=element_text(size=8,color='black'),plot.title=element_text(size=9))
+raw<-paste(deparse(pick('make_one'),width.cutoff=500),collapse='\n');adapt<-gsub('Age + sex','Original',raw,fixed=TRUE)
+adapt<-sub('lim <- c(0.58, 0.82)','lim <- original_limits',adapt,fixed=TRUE);adapt<-sub('breaks <- c(0.6, 0.7, 0.8)','breaks <- original_breaks',adapt,fixed=TRUE)
+adapt<-sub('sub <- d[d$organ == organ & d$group == grp, ]','sub <- d[d$organ == organ & d$group == grp & d$available, ]',adapt,fixed=TRUE)
+adapt<-sub('DISCO = "DISCO", Oh = "Oh ProtAge", Goeminne = "Goeminne ProtAge"','DISCO = if (grp == "Original") "DISCO + Age" else "DISCO Accel", DISCO_Oh = "DISCO-Oh + Age", DISCO_Goeminne = "DISCO-Go + Age", Oh = "Oh ProtAge", Goeminne = "Goeminne ProtAge"',adapt,fixed=TRUE)
+adapt<-sub('DISCO = "#E64B35", Oh = "grey70", Goeminne = "grey70"','DISCO = "#E64B35", DISCO_Oh = "#3C5488", DISCO_Goeminne = "#00A087", Oh = "grey70", Goeminne = "grey70"',adapt,fixed=TRUE)
+adapt<-sub('scale_y_discrete(labels = yl,','scale_y_discrete(drop = FALSE, labels = yl,',adapt,fixed=TRUE)
+adapt<-sub('bb <- ggplot_build(q)','missing <- d[d$organ == organ & d$group == grp & !d$available, ]; if (nrow(missing)) for (i in seq_len(nrow(missing))) q <- q + annotate("text", x = mean(lim), y = as.numeric(missing$score[i]), label = "Not defined (p < 2)", size = 2.5, family = "Helvetica", color = "grey35"); bb <- ggplot_build(q)',adapt,fixed=TRUE)
+left<-d[d$group=='Original'&d$available,];original_limits<-c(min(.54,floor((min(left$lower95)-.008)*100)/100),max(.82,ceiling((max(left$upper95)+.008)*100)/100));original_breaks<-c(.45,.55,.65,.75,.85);original_breaks<-original_breaks[original_breaks>=original_limits[1]&original_breaks<=original_limits[2]]
+stopifnot(grepl('drop = FALSE',adapt,fixed=TRUE),grepl('d$available',adapt,fixed=TRUE));ranges<-builtdata<-list();eval(parse(text=adapt))
+cells_code<-paste(deparse(pick('cells'),width.cutoff=500),collapse='\n');eval(parse(text=gsub('Age + sex','Original',cells_code,fixed=TRUE)))
+p<-wrap_plots(cells,ncol=3,nrow=3)+plot_annotation(caption='C-index (95% CI)',theme=theme(plot.caption=element_text(family='Helvetica',size=10,hjust=.5),plot.margin=margin(6,6,6,6)))
+pdf(file.path(out,'panels/d_strict_matched_proteins.pdf'),width=11.8,height=6.8,family='Helvetica',useDingbats=FALSE);print(p);invisible(dev.off())
+saveRDS(list(plot=p,data=d,ranges=ranges),file.path(out,'PRIVATE/matched_plot_source.rds'));writeLines(adapt,file.path(out,'logs/strict_matched_adapted_make_one.R'));write_json(list(layout='same original nine organs 3x3 paired Original/Accel design',font='Helvetica',all_estimated_C_and_CI_checked=TRUE,estimated=sum(d$available),undefined=sum(!d$available),undefined_reason='Fewer than two NEW train-selected proteins, where applicable',all_CI_visible=TRUE,original_limits=original_limits,ranges=ranges,current_not_changed=TRUE),file.path(out,'qa/matched_plot_checks.json'),pretty=TRUE,auto_unbox=TRUE)
+cat('Matched-protein sensitivity plot:',sum(d$available),'C/CI values,',sum(!d$available),'explicit undefined values\n')

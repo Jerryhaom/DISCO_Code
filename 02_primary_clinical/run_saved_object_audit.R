@@ -15,6 +15,7 @@ disco_init_module("02_primary_clinical")
 # This is a reproducibility gate, not the final re-computation pipeline.
 
 options(stringsAsFactors = FALSE)
+suppressPackageStartupMessages(library(survival))
 root <- disco_project_root()
 r1 <- file.path(root, "Result1")
 out_dir <- "outputs"
@@ -73,7 +74,7 @@ cox_summary <- function(x, label, formula_text) {
   fit <- survival::coxph(as.formula(formula_text), data = x)
   s <- summary(fit)
   data.frame(
-    dataset = label, formula = formula_text, n = nobs(fit), events = fit$nevent,
+    dataset = label, formula = formula_text, n = fit$n, events = fit$nevent,
     c_index = unname(s$concordance[1]), se = unname(s$concordance[2])
   )
 }
@@ -87,6 +88,7 @@ cox <- rbind(
   cox_summary(uk1, "UKB", "Surv(time,status)~log(hd)+age")
 )
 
+disco_validate_cox_rows(cox)
 write.csv(audit, file.path(out_dir, "saved_object_audit.csv"), row.names = FALSE)
 write.csv(comparison, file.path(out_dir, "object_comparison.csv"), row.names = FALSE)
 write.csv(cox, file.path(out_dir, "cox_recalculation.csv"), row.names = FALSE)

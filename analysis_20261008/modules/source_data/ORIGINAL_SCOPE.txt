@@ -1,0 +1,25 @@
+ED1 original Source Data observer and retained export helper sources.
+
+export_ED1_original.R sources export_more_sources.R, which sources export_r_sources.R.
+The supported ED1 runner sets DISCO_EXPORT_SCOPE=ED1_original. A dispatch guard
+skips the unrelated controlled-cohort callbacks while retaining all callback bodies
+for provenance. It does not read their participant files. Source() paths, optional
+R library paths and output directories use explicit configuration/environment.
+Export manifest paths use logical caller-input/output labels, never original host paths.
+
+The exact upstream source is Simulation/Sim_Distances.R. Definitions 3–101 and
+plot_KL3 body 681–788 are bundled as source-only excerpts and hashed. set.seed(123)
+is inside the unchanged original function. The full original file must be supplied
+by the caller and must match the recorded hash. Original calls are lines790–791.
+The observer captures local grid_distances immediately before the unchanged return.
+Each rho (.1/.7) has n1000/p10 and eleven repeated noise levels0–2 on the same
+fictional subjects. The exported synthetic rows are not independent biological people.
+Entropy is full logdet change, not the corrected S1–S5 signed-half quantity.
+
+ed1-contract checks the public source excerpts and emits a source manifest with
+no caller input. ed1-observe requires caller-supplied full original source and a
+matching local R dependency environment; this is a separately reported observed
+execution, not a self-contained public or full-cohort reconstruction certification.
+The generated ED1 synthetic/aggregate manifest can be verified independently with
+ed1-manifest-check. No existing Source Data CSV, RDS, private input or source module
+is copied or altered. Original licenses/authorship remain; no publication authorized.

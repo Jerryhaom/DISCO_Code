@@ -1,0 +1,461 @@
+{
+  "status": "LOCAL_REVIEW_CANDIDATE_NOT_PUBLISHED",
+  "prior_archive": "08_software/release_validation_20261007/output/DISCO_source_release_validation_20261007.zip",
+  "prior_sha256": "38510d507810eb95d95c682dd3c686a8474566ec26165e7b3ae6810b5fd5bf56",
+  "prior_members": 422,
+  "excluded": {
+    "DISCO4HD/data-raw/web-reference-snapshot.rds": "Frozen reference parameters: no redistribution permission supplied.",
+    "DISCO4HD/inst/extdata/disco10-references.rds": "Controlled-cohort reference registry: no redistribution permission supplied.",
+    "DISCO_Code/current/resources/geometry_prior_objects.rds": "Historical synthetic simulation object; omitted under the source-only no-RDS policy."
+  },
+  "source_records": [
+    {
+      "member": "DISCO4HD/DESCRIPTION",
+      "kind": "pure_Rcpp_0.3.2_source_replacement",
+      "prior_sha256": "ac02abb529234a7393a176473a82cdf6616c132958e879497785405510e18ed5",
+      "sha256": "db5f0d6d12c3d2993ee7a8c4f59cefb393c17c72effad55513632c7d9b2ae8b0",
+      "source": "08_software/release_resolution_20261008/source/DISCO4HD/DESCRIPTION"
+    },
+    {
+      "member": "DISCO4HD/src/Makevars",
+      "kind": "pure_Rcpp_0.3.2_source_replacement",
+      "prior_sha256": "f4596d215353a0daba76ff6d0e8eab9776dd822c24bc14582e9c072f9f3604db",
+      "sha256": "ca64b23468cb36a64852e31b51892a417c4b47b7179115facd9bd9af6ae3c7cb",
+      "source": "08_software/release_resolution_20261008/source/DISCO4HD/src/Makevars"
+    },
+    {
+      "member": "DISCO4HD/src/Makevars.win",
+      "kind": "pure_Rcpp_0.3.2_source_replacement",
+      "prior_sha256": "f4596d215353a0daba76ff6d0e8eab9776dd822c24bc14582e9c072f9f3604db",
+      "sha256": "ca64b23468cb36a64852e31b51892a417c4b47b7179115facd9bd9af6ae3c7cb",
+      "source": "08_software/release_resolution_20261008/source/DISCO4HD/src/Makevars.win"
+    },
+    {
+      "member": "DISCO4HD/src/RcppExports.cpp",
+      "kind": "pure_Rcpp_0.3.2_source_replacement",
+      "prior_sha256": "e5cb7a79321e5b19bb14a194c50a7953a8139c0de874382ddf4e22cfd0d6e379",
+      "sha256": "9600707dac57a9afc116248531b66420622cdcfd3102af5b5548ace820903d07",
+      "source": "08_software/release_resolution_20261008/source/DISCO4HD/src/RcppExports.cpp"
+    },
+    {
+      "member": "DISCO4HD/src/parallel_disco.cpp",
+      "kind": "pure_Rcpp_0.3.2_source_replacement",
+      "prior_sha256": "db1e3e121ad1eebc9800c0879a19eaf24c51bced87083e246f129e04c644a393",
+      "sha256": "48ebf3cc02424afd5fc84993d49d653a719ca1047bcbe50c9507ab8b5cbb1aab",
+      "source": "08_software/release_resolution_20261008/source/DISCO4HD/src/parallel_disco.cpp"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/theory/code/verify_identities.py",
+      "source": "01_method_definition/theory_resolution_20261008/code/verify_identities.py",
+      "source_sha256": "71b32473115ed9736a50621a35f555c54c07e1995420912d6e955e95d09c713a",
+      "sha256": "3902921c95f71bb299799f0f90584fdc12625c1a9e7c0bef27c4a2f434c93677",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/theory/verify_identities.py.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/theory/code/check_actual_geometry.R",
+      "source": "01_method_definition/theory_resolution_20261008/code/check_actual_geometry.R",
+      "source_sha256": "50fa34d12e24b4e282ea0b51e477396925992977eab2ab86c3fa1f397c5381ec",
+      "sha256": "eb742e15456ef7dd816da14ffb2ccd3de082476c21b4d4705efd3fa8c4381c42",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/theory/check_actual_geometry.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/theory/code/build_theory_pdf.py",
+      "source": "01_method_definition/theory_resolution_20261008/code/build_theory_pdf.py",
+      "source_sha256": "0bed628a5ab81d4343765d387d81c7065f1ac664c9352d412f72403748a0a95a",
+      "sha256": "2b1a4411db5a4993f0b56802f1baf6c6285bf56bebf07e00bfddcedcf4ef6fbd",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/theory/build_theory_pdf.py.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed4/code/run_ed4f.R",
+      "source": "01_method_definition/ED4fh_full_recompute_20261008/code/run_ed4f.R",
+      "source_sha256": "9ea33ebf1cc6d3de9b4ea367ba73deb1f192ff69815a1e511ec22860642bad8f",
+      "sha256": "cc6e17af284686da58693c0674465f7d640420ca5a38f5856256ae0bcc97a88e",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/ed4/run_ed4f.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed4/code/run_ed4h.R",
+      "source": "01_method_definition/ED4fh_full_recompute_20261008/code/run_ed4h.R",
+      "source_sha256": "358e36223034d3250bf72dbc9ed0a37e867443d763799650d5f8ce36a11fae79",
+      "sha256": "cfb1a9223e7b1424dd869259e5dfbec60e072452de6fd6201123c352e8ad426d",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/ed4/run_ed4h.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed4/code/plot_recomputed.R",
+      "source": "01_method_definition/ED4fh_full_recompute_20261008/code/plot_recomputed.R",
+      "source_sha256": "940ccf8162bcddb67d580546ac0fad26a944bd96c585729227b7ff527beef96d",
+      "sha256": "8f074a9cfc54d3c040de286a971b3739df1e6ef62c2f6532217a58ee3c6bd39f",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/ed4/plot_recomputed.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed4/code/score_kernel.cpp",
+      "source": "01_method_definition/ED4fh_full_recompute_20261008/code/score_kernel.cpp",
+      "source_sha256": "185568e5f6d7f46fe366fa87484453dc147ebcfaa6c566326acfae736e3a81fa",
+      "sha256": "185568e5f6d7f46fe366fa87484453dc147ebcfaa6c566326acfae736e3a81fa",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/ed4/score_kernel.cpp.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed4/tables/ED4f_summary.csv",
+      "source": "01_method_definition/ED4fh_full_recompute_20261008/tables/ED4f_summary.csv",
+      "source_sha256": "f42f950f6041dd51c0d3c5af073897702fab8f26ead1d771ab3aa4e4ae08a747",
+      "sha256": "f42f950f6041dd51c0d3c5af073897702fab8f26ead1d771ab3aa4e4ae08a747",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed4/tables/ED4f_replicates_40.csv",
+      "source": "01_method_definition/ED4fh_full_recompute_20261008/tables/ED4f_replicates_40.csv",
+      "source_sha256": "5fe609377f79a40c8ccb8b6d694e5ddeb479185a617f23d3caf64be9a5c1ae88",
+      "sha256": "5fe609377f79a40c8ccb8b6d694e5ddeb479185a617f23d3caf64be9a5c1ae88",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed4/tables/ED4h_DISCO_2100.csv",
+      "source": "01_method_definition/ED4fh_full_recompute_20261008/tables/ED4h_DISCO_2100.csv",
+      "source_sha256": "cafc6b4883673cc99846cd7a12be13ba84dd7f4bc0b83dbe663fc19b3a32f07b",
+      "sha256": "cafc6b4883673cc99846cd7a12be13ba84dd7f4bc0b83dbe663fc19b3a32f07b",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed4/tables/ED4h_DM_700.csv",
+      "source": "01_method_definition/ED4fh_full_recompute_20261008/tables/ED4h_DM_700.csv",
+      "source_sha256": "da4b88c30b8ea68ac7213ed90ccce416e975383c7ea5b14978b41cbb9dec0721",
+      "sha256": "da4b88c30b8ea68ac7213ed90ccce416e975383c7ea5b14978b41cbb9dec0721",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed4/tables/ED4h_DISCO_summary_42.csv",
+      "source": "01_method_definition/ED4fh_full_recompute_20261008/tables/ED4h_DISCO_summary_42.csv",
+      "source_sha256": "a0bf3d89bbb3f18170ed9f6a4b69fde0ec2989799a0505713f13207923b8faf8",
+      "sha256": "a0bf3d89bbb3f18170ed9f6a4b69fde0ec2989799a0505713f13207923b8faf8",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed4/tables/ED4h_DM_summary_14.csv",
+      "source": "01_method_definition/ED4fh_full_recompute_20261008/tables/ED4h_DM_summary_14.csv",
+      "source_sha256": "3a00093735028f9d8a8acf60b3d909da08bd16fbc4197317910afd179c8fc138",
+      "sha256": "3a00093735028f9d8a8acf60b3d909da08bd16fbc4197317910afd179c8fc138",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/fig4c/code/run_fig4c.R",
+      "source": "05_organ_network/Fig4c_raw_reconstruction_20261008/code/run_fig4c.R",
+      "source_sha256": "dc45b9ab5d3df8c6ef31c99fae96b45f34b7623383ec9e63802a48019a10afa3",
+      "sha256": "8f01808fab299d2925388e88aac03ab7bee572061500520297596b36940c7b95",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/fig4c/run_fig4c.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/fig4c/code/compare_full_raw_branch.R",
+      "source": "05_organ_network/Fig4c_raw_reconstruction_20261008/code/compare_full_raw_branch.R",
+      "source_sha256": "747d5c996e11ef0e0fb6e375916b537b67ccb1cad7d2594b77b9ee3653b1138f",
+      "sha256": "881e961e9167187bcb6de6befa40fe667ff93b1283942bb77120da182939f025",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/fig4c/compare_full_raw_branch.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/fig4c/code/plot_verified_raw_branch.R",
+      "source": "05_organ_network/Fig4c_raw_reconstruction_20261008/code/plot_verified_raw_branch.R",
+      "source_sha256": "847fbbeca586f6d6a0f0dd8b89150cc3c4c8aa774a1e8c2ab3f494b9f740d351",
+      "sha256": "847fbbeca586f6d6a0f0dd8b89150cc3c4c8aa774a1e8c2ab3f494b9f740d351",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/fig4c/plot_verified_raw_branch.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/fig4c/tables/Fig4c_new_statistics.csv",
+      "source": "05_organ_network/Fig4c_raw_reconstruction_20261008/tables/Fig4c_new_statistics.csv",
+      "source_sha256": "a9dd66160e1c4528ab18a3be37d504fae92abe741ce317c663294aa6e620d615",
+      "sha256": "a9dd66160e1c4528ab18a3be37d504fae92abe741ce317c663294aa6e620d615",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/s11b/code/01_recompute_raw_and_pairs.R",
+      "source": "05_organ_network/S11b_full_pair_recompute_20261008/code/01_recompute_raw_and_pairs.R",
+      "source_sha256": "ce40a5336a444cf02974d5ca33a47c7f9173c6e457f0a894808213033d769d64",
+      "sha256": "ddb266a4fb264434a7a74aa176af8523fbb6ddd43f5f1bdbfa31e9baaed4e1a3",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/s11b/01_recompute_raw_and_pairs.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/s11b/code/02_current_endpoint_targets.R",
+      "source": "05_organ_network/S11b_full_pair_recompute_20261008/code/02_current_endpoint_targets.R",
+      "source_sha256": "c0e204a3b003f35c79946f23486455214fd511d55d6594d1bee9a34be8ae22da",
+      "sha256": "5e4a6c5a30bbffdb28bda160685c0aa493fdc882afabb361c8bd65652ebd79b0",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/s11b/02_current_endpoint_targets.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/s11b/code/03_power_statistics_and_plot.R",
+      "source": "05_organ_network/S11b_full_pair_recompute_20261008/code/03_power_statistics_and_plot.R",
+      "source_sha256": "a7fb72b9a42b91bfce3134a0d7ece934a5312569939126ace6b94cee3c8825c7",
+      "sha256": "9f99c167acd0c747594c70111a8f605c9adbcb9a9152cc68cdc7b7fbb38285c9",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/s11b/03_power_statistics_and_plot.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/s11b/code/04_server_core_fingerprint.R",
+      "source": "05_organ_network/S11b_full_pair_recompute_20261008/code/04_server_core_fingerprint.R",
+      "source_sha256": "21eb2f505f0f49d6a5bbe023cda8d550e509d025124336e2becb912d96fc767d",
+      "sha256": "f9479148cc76a4e644ca593173176277a3562ed5e67bbf847c7886a68d8aa539",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/s11b/04_server_core_fingerprint.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/s11b/code/05_verify_id_score_bridge.R",
+      "source": "05_organ_network/S11b_full_pair_recompute_20261008/code/05_verify_id_score_bridge.R",
+      "source_sha256": "c06826484459078470525b18ac38a09fe8945903b8477c295ee0f626302e9317",
+      "sha256": "afe08ba27b2457ef135ee6462b29478d2b9755479dfc14efd4a3abe200c1df9e",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/s11b/05_verify_id_score_bridge.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/s11b/tables/S11b_current_24_keyed_points.csv",
+      "source": "05_organ_network/S11b_full_pair_recompute_20261008/tables/S11b_current_24_keyed_points.csv",
+      "source_sha256": "024b757831260b698660089ed781ad5d21ded7751746f70925773566bee67916",
+      "sha256": "024b757831260b698660089ed781ad5d21ded7751746f70925773566bee67916",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/s11b/tables/organ_pair_partial_r_NEW.csv",
+      "source": "05_organ_network/S11b_full_pair_recompute_20261008/tables/organ_pair_partial_r_NEW.csv",
+      "source_sha256": "bf6f2438118d741ffdea79c546ea39f9ad94be4b2f82d7b081841e4384f3a2f0",
+      "sha256": "bf6f2438118d741ffdea79c546ea39f9ad94be4b2f82d7b081841e4384f3a2f0",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/s11b/tables/nonoverlap_pairs_153.csv",
+      "source": "05_organ_network/S11b_full_pair_recompute_20261008/tables/nonoverlap_pairs_153.csv",
+      "source_sha256": "e978810a4243e0c3199ad76515dd84b4eb80488087369a0e5fb1836ee52e1b4a",
+      "sha256": "e978810a4243e0c3199ad76515dd84b4eb80488087369a0e5fb1836ee52e1b4a",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/s11b/tables/S11b_current_targets_18_organs.csv",
+      "source": "05_organ_network/S11b_full_pair_recompute_20261008/tables/S11b_current_targets_18_organs.csv",
+      "source_sha256": "00de94c601e444d80754825e90f8be21a6f945b1ecb665c5b98005d502486a66",
+      "sha256": "00de94c601e444d80754825e90f8be21a6f945b1ecb665c5b98005d502486a66",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed9c/code/run_ed9c.R",
+      "source": "05_organ_network/ED9c_partial_correlation_20261008/code/run_ed9c.R",
+      "source_sha256": "08563bcbf5623d4f111f62b04ae53922b8fce39c5043187df1c2d909e3c961d6",
+      "sha256": "9730a284ebd735bf742ad181601ba5e7ce605e1337dfb65eca00008b9400e207",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/ed9c/run_ed9c.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed9c/tables/ED9c_nominal_P.csv",
+      "source": "05_organ_network/ED9c_partial_correlation_20261008/tables/ED9c_nominal_P.csv",
+      "source_sha256": "2ba7604039b1a3ad12ccb5b6442f2f915a61d23f46ec669385ea1ec74168126e",
+      "sha256": "2ba7604039b1a3ad12ccb5b6442f2f915a61d23f46ec669385ea1ec74168126e",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed9c/tables/ED9c_absolute_partial_r.csv",
+      "source": "05_organ_network/ED9c_partial_correlation_20261008/tables/ED9c_absolute_partial_r.csv",
+      "source_sha256": "128741987cec34002a1dd1ce7504ed687c92a25acf8909660f320128fedcbbfb",
+      "sha256": "128741987cec34002a1dd1ce7504ed687c92a25acf8909660f320128fedcbbfb",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ed9c/tables/ED9c_age_sex_450_cells.csv",
+      "source": "05_organ_network/ED9c_partial_correlation_20261008/tables/ED9c_age_sex_450_cells.csv",
+      "source_sha256": "ffcb2a16c34c3e19f422024f8b40512ba9f127f48e2f6ecb813e8a720507adaf",
+      "sha256": "ffcb2a16c34c3e19f422024f8b40512ba9f127f48e2f6ecb813e8a720507adaf",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ph/code/check_frozen_PH.py",
+      "source": "05_organ_network/PH_interpretation_resolution_20261008/code/check_frozen_PH.py",
+      "source_sha256": "a555cc68b4dbb7818e46179e86d918d188805c244729f7a071af140ebdeffd19",
+      "sha256": "db34df638b4f4c9802c8833ec3c58e7ad7d24b51f7c99397f684eb4b14684825",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/ph/check_frozen_PH.py.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/code/inventory_sources.R",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/code/inventory_sources.R",
+      "source_sha256": "d44f40416f4fbf5f8e4df3b3dc7b2d7a58667f2d4407240ff7d36722cf3d523d",
+      "sha256": "7376a92ddaf0dc2696129acf4cc3cef09364f6bd05ff5056369c67ae0b2220a6",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/charls/inventory_sources.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/code/build_interval_endpoints.R",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/code/build_interval_endpoints.R",
+      "source_sha256": "3af37dffcacde6534b72d8bf43b7a7a7930d3615c36a4f9c5d224a96e9602775",
+      "sha256": "38364cd2bff880610ac7ac133cd8401faf65f19fe3d322753d9a30c5c55dd27c",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/charls/build_interval_endpoints.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/code/build_retrospective_sensitivity.R",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/code/build_retrospective_sensitivity.R",
+      "source_sha256": "327d211fce696652144777b565193065051d69033c089ddca6b32aed1536cdf2",
+      "sha256": "322b07fe3f114f2121e68d141965ecc34a6b7c109851274bd6f40e7b18e4d324",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/charls/build_retrospective_sensitivity.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/code/fit_interval_sensitivity.R",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/code/fit_interval_sensitivity.R",
+      "source_sha256": "92b56654ef43f76aeb5b05bc242c07915daf46546a714c1c6717acd059f69b74",
+      "sha256": "05dad0630f10c8cc5c042d3a0e86ac9092432b20e7944c4a10e429f8997b4a80",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/charls/fit_interval_sensitivity.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/code/summarize_and_verify.R",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/code/summarize_and_verify.R",
+      "source_sha256": "209fd27722d3dcab7b3c835e2cce083edea66380fe71c5330ef1d4961bb4f760",
+      "sha256": "81ac9e71304d8856ccfec2d15dcc1b0a8ce75143020bf331e9be2d560f7bbd1b",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/charls/summarize_and_verify.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/code/plot_interval_sensitivity.R",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/code/plot_interval_sensitivity.R",
+      "source_sha256": "6d8936435b7fe99a951905aaf02e2128836ff0ad77d07fc8ebc706127a4a38f2",
+      "sha256": "fad9f9bb4084ec8b4434926406a3aa88a4e713b9009aa20ee4c2d4b60c4b5499",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/charls/plot_interval_sensitivity.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/tables/Meta_pooled_primary_interval.csv",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/tables/Meta_pooled_primary_interval.csv",
+      "source_sha256": "f617bf6786eff07d03c68d99468bcb234912517024d5b9b7feaa149286e8222e",
+      "sha256": "f617bf6786eff07d03c68d99468bcb234912517024d5b9b7feaa149286e8222e",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/tables/Meta_paired_differences.csv",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/tables/Meta_paired_differences.csv",
+      "source_sha256": "f4519d3d87cc78344d921141eec0f0f6a287333d31705f3786f801e0d722c394",
+      "sha256": "f4519d3d87cc78344d921141eec0f0f6a287333d31705f3786f801e0d722c394",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/tables/Meta_LOO_primary_interval.csv",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/tables/Meta_LOO_primary_interval.csv",
+      "source_sha256": "568e2c907176b8ac6dcc936564570fae1143e3f9994ae0a3a95ec79e76d6b5cb",
+      "sha256": "568e2c907176b8ac6dcc936564570fae1143e3f9994ae0a3a95ec79e76d6b5cb",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/tables/ED3b_ED8b_group_endpoint_propagation.csv",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/tables/ED3b_ED8b_group_endpoint_propagation.csv",
+      "source_sha256": "a23d8572a563cdf43c4df1cf13d1e23acdb521cf4008d811730e969e54a5c03e",
+      "sha256": "a23d8572a563cdf43c4df1cf13d1e23acdb521cf4008d811730e969e54a5c03e",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/tables/proposed_methods_results_captions.txt",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/tables/proposed_methods_results_captions.txt",
+      "source_sha256": "114231284e4dc268b05f5fb22cf158e2570b1927d622364200df269bd5a8c5d3",
+      "sha256": "114231284e4dc268b05f5fb22cf158e2570b1927d622364200df269bd5a8c5d3",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/tables/CHARLS_endpoint_sensitivity_comparison.csv",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/tables/CHARLS_endpoint_sensitivity_comparison.csv",
+      "source_sha256": "9780a11c61833c5b2e365201497950f1f7523ea03681c859b7d6e59c3218948b",
+      "sha256": "9780a11c61833c5b2e365201497950f1f7523ea03681c859b7d6e59c3218948b",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/charls/tables/Meta_inputs_primary_interval.csv",
+      "source": "04_external_validation/CHARLS_endpoint_resolution_20261008/tables/Meta_inputs_primary_interval.csv",
+      "source_sha256": "71bc0683145dd7aaf31ba8064a34f8609d9e806fcedb5b7441b0deb3bfbeaa75",
+      "sha256": "71bc0683145dd7aaf31ba8064a34f8609d9e806fcedb5b7441b0deb3bfbeaa75",
+      "kind": "aggregate_statistics_no_participant_rows"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/source_data/code/export_ED1_original.R",
+      "source": "09_figures_tables/source_data_resolution_20261008/code/export_ED1_original.R",
+      "source_sha256": "9997066c08a98fcf69db95955d2924279436e9b1d82c15583725babc38392473",
+      "sha256": "2f491b794b458cd36f48a7a25001deb14d0957641fddd02e6b9cf152851d4f51",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/source_data/export_ED1_original.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/source_data/code/export_more_sources.R",
+      "source": "09_figures_tables/source_data_resolution_20261008/code/export_more_sources.R",
+      "source_sha256": "832d238c21caea832e7b6989902945c65aefdcac6eaed4fc98f3aaa8f27adc34",
+      "sha256": "0d245aa54ecb9bb6fbfc82615a9c9b965fd20b64a0947d51d8b604852b313b23",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/source_data/export_more_sources.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/source_data/code/export_r_sources.R",
+      "source": "09_figures_tables/source_data_resolution_20261008/code/export_r_sources.R",
+      "source_sha256": "6e9d083f0a2bc7ccc017f97469075f8f6f5f7425c84554d612345f5d6147e3ed",
+      "sha256": "007ccc7999b4f7c46a4d9cdd354d39c03ed7517019b2f366d8a2089762491ada",
+      "changes": "I/O bindings only; ed4 plots consume equivalent public CSV aggregates; statistical bodies retained",
+      "diff": "qa/source_diffs/source_data/export_r_sources.R.diff"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ph/frozen_aggregate_input/training_PH_both_bases.csv",
+      "source": "05_organ_network/PH_interpretation_resolution_20261008/input/training_PH_both_bases.csv",
+      "source_sha256": "cf6eade0c3baa98e98d32647f1be5279492b2a1f6711b59cd478dbf49690f2bd",
+      "sha256": "cf6eade0c3baa98e98d32647f1be5279492b2a1f6711b59cd478dbf49690f2bd",
+      "kind": "frozen_aggregate_audit_input_or_source"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ph/frozen_aggregate_input/training_HR_both_scales.csv",
+      "source": "05_organ_network/PH_interpretation_resolution_20261008/input/training_HR_both_scales.csv",
+      "source_sha256": "acb22375723071065456b95e82430ccb4ed7d366c0ca93d6ef86aa61d887002b",
+      "sha256": "acb22375723071065456b95e82430ccb4ed7d366c0ca93d6ef86aa61d887002b",
+      "kind": "frozen_aggregate_audit_input_or_source"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ph/frozen_aggregate_input/training_calibration.csv",
+      "source": "05_organ_network/PH_interpretation_resolution_20261008/input/training_calibration.csv",
+      "source_sha256": "b9204e6bff308a54fc787c3e6922cc1d77c844943361e947a6524a547c7d864f",
+      "sha256": "b9204e6bff308a54fc787c3e6922cc1d77c844943361e947a6524a547c7d864f",
+      "kind": "frozen_aggregate_audit_input_or_source"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ph/frozen_aggregate_input/exploratory_5yr_piecewise_HR.csv",
+      "source": "05_organ_network/PH_interpretation_resolution_20261008/input/exploratory_5yr_piecewise_HR.csv",
+      "source_sha256": "7976b04ff5e7d779c42704ab4ba057db91b9460becaad016ed5ec715d9e6b3ee",
+      "sha256": "7976b04ff5e7d779c42704ab4ba057db91b9460becaad016ed5ec715d9e6b3ee",
+      "kind": "frozen_aggregate_audit_input_or_source"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ph/frozen_aggregate_input/paired_Cindex_differences.csv",
+      "source": "05_organ_network/PH_interpretation_resolution_20261008/input/paired_Cindex_differences.csv",
+      "source_sha256": "27b8b1f5d27ddb74fdf7162eed4841452cb51b3e3b60f0080f950baab67d70ed",
+      "sha256": "27b8b1f5d27ddb74fdf7162eed4841452cb51b3e3b60f0080f950baab67d70ed",
+      "kind": "frozen_aggregate_audit_input_or_source"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ph/frozen_aggregate_input/execution_QA.json",
+      "source": "05_organ_network/PH_interpretation_resolution_20261008/input/execution_QA.json",
+      "source_sha256": "3abd87c7da8168194d07c6bee2dadee724af24ca39faa6a267d85eeca7ae6175",
+      "sha256": "3abd87c7da8168194d07c6bee2dadee724af24ca39faa6a267d85eeca7ae6175",
+      "kind": "frozen_aggregate_audit_input_or_source"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ph/frozen_aggregate_input/02_fit_clock_endpoint.R",
+      "source": "05_organ_network/PH_interpretation_resolution_20261008/input/02_fit_clock_endpoint.R",
+      "source_sha256": "d09bc3777d179ff464198c86521214b92eca94b98b273e96b0975564704bc52a",
+      "sha256": "253f09c8e70857a9692fe060c7087b61d6977a18c5e7f428378d7d318ab7b1c6",
+      "kind": "frozen_aggregate_audit_input_or_source"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/ph/frozen_aggregate_input/acceptance.json",
+      "source": "05_organ_network/PH_interpretation_resolution_20261008/input/acceptance.json",
+      "source_sha256": "9b6ec61ec015de149eee817b40ebf5ccd0ae8c8f57f865f440ec593a79fee17a",
+      "sha256": "a7bdfc007a6bb8489de6e26202ed5952a6b04ccd4ed059ad66bcc359093a0bbb",
+      "kind": "frozen_aggregate_audit_input_or_source"
+    }
+  ],
+  "scientific_scope": "Portability integration and no-private-input execution, not cohort refits or three-OS certification",
+  "license": "Original licenses retained; new source distribution requires author confirmation."
+}

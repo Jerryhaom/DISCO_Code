@@ -1,0 +1,20 @@
+#!/usr/bin/env Rscript
+entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(entry))
+if(nzchar(Sys.getenv('DISCO_R_LIB'))) .libPaths(c(Sys.getenv('DISCO_R_LIB'),.libPaths()))
+suppressPackageStartupMessages({library(ggplot2);library(patchwork);library(data.table);library(jsonlite);library(grid);library(digest)})
+setDTthreads(1);Sys.umask('0077')
+d<-fread(file.path(out,'numeric/panel_d_Cindex.csv'),data.table=FALSE);stopifnot(nrow(d)==54,all(is.finite(d$C)))
+d$score<-factor(d$score,levels=c('Goeminne','Oh','DISCO'));organs<-unique(d$organ);labs<-setNames(d$display[match(organs,d$organ)],organs)
+srcpath<-file.path(file.path(Sys.getenv('DISCO_DATA_ROOT'),'Results_final/05_organ_network/organ_clock_comparison'),'20261002_rebuilt_figures/02_plot.R');src<-parse(srcpath)
+assignments<-Filter(function(e)is.call(e)&&identical(e[[1]],as.name('<-')),as.list(src));pick<-function(n)assignments[[which(vapply(assignments,function(e)identical(e[[2]],as.name(n)),FALSE))]]
+eval(pick('font'));raw<-paste(deparse(pick('make_one'),width.cutoff=500),collapse='\n');adapt<-gsub('Age + sex','Original',raw,fixed=TRUE)
+adapt<-sub('lim <- c(0.58, 0.82)','lim <- original_limits',adapt,fixed=TRUE);adapt<-sub('breaks <- c(0.6, 0.7, 0.8)','breaks <- original_breaks',adapt,fixed=TRUE)
+adapt<-sub('DISCO = "DISCO"','DISCO = if (grp == "Original") "DISCO + Age" else "DISCO Accel"',adapt,fixed=TRUE)
+left<-d[d$group=='Original',];original_limits<-c(min(.58,floor((min(left$lower95)-.008)*100)/100),max(.82,ceiling((max(left$upper95)+.008)*100)/100));original_breaks<-c(.55,.65,.75,.85);original_breaks<-original_breaks[original_breaks>=original_limits[1]&original_breaks<=original_limits[2]]
+stopifnot(grepl('original_limits',adapt,fixed=TRUE),grepl('DISCO Accel',adapt,fixed=TRUE));ranges<-builtdata<-list();eval(parse(text=adapt))
+cells_code<-paste(deparse(pick('cells'),width.cutoff=500),collapse='\n');eval(parse(text=gsub('Age + sex','Original',cells_code,fixed=TRUE)))
+p<-wrap_plots(cells,ncol=3,nrow=3)+plot_annotation(title='Mortality discrimination',caption='C-index (95% CI)',theme=theme(plot.title=element_text(family='Helvetica',size=9,face='plain',hjust=0,margin=margin(l=54)),plot.caption=element_text(family='Helvetica',size=9,hjust=.5),plot.margin=margin(6,7,6,7)))
+pdf(file.path(out,'panels/d_strict_train_only.pdf'),width=9.6,height=4.6,family='Helvetica',useDingbats=FALSE);print(p);invisible(dev.off())
+writeLines(raw,file.path(out,'logs/original_make_one.R'));writeLines(adapt,file.path(out,'logs/strict_adapted_make_one.R'));saveRDS(list(plot=p,data=d,ranges=ranges),file.path(out,'PRIVATE/d_plot_source.rds'))
+write_json(list(actual_original_plot_source=normalizePath(srcpath),plot_source_sha256=digest(srcpath,file=TRUE,algo='sha256'),layout='nine organs 3x3; Original | Accel',font='Helvetica',body_pt=7,title_pt=9,all_54_C_and_CI_checked=TRUE,all_CI_visible=TRUE,original_limits=original_limits,ranges=ranges,individual_participant_data_not_in_pdf=TRUE,current_not_changed=TRUE),file.path(out,'qa/d_plot_checks.json'),pretty=TRUE,auto_unbox=TRUE)
+cat('New strict d only: original geometry/fonts; 54 values and CIs verified\n')

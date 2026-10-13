@@ -1,0 +1,30 @@
+# Fig4c 原始数据完整重建候选
+
+此模块实际执行了 raw QC、median插补、蛋白LASSO、临床+蛋白LASSO、DISCO评分、age+sex残差相关、网络度与相关性图。不再仅重放已保存的396项网络对象。但它是透明固定seed新计算：不能写成历史随机fold名单或原图数值已经找到。
+
+## 真实来源
+
+- 临床输入：真正逐值匹配保存矩阵的是 `Raw/Result1/Cal_UKB_DISCO.R` 的row missing<50%与默认中位数插补。最新同名`Result1/Cal_UKB_DISCO.R`还有scale/Tukey clipping，但该段与保存输入不一致，不用于本链。原raw重做487517×58全部值差0。
+- 蛋白输入：`Result2/Cal_Prot.R`实际raw missing QC与中位数插补；保存367蛋白的所有输入值差0。raw保留一个恒定`ins_index`元数据列，新glmnet自动丢弃其常数信息；367个真正选中蛋白的coding集合与历史相同。该常量不参与最后DISCO。
+- 训练：存下的原两个`cv.glmnet` call均为family=cox、5fold、type.measure=C；`Raw/Result2/Cal_ClinicalProt.R`有实际联合训练段与set.seed134。原蛋白fold名单/seed未保存；新链明确使用seed134并保存两fold名单。glmnet5.0 Cox默认Breslow已在代码显式锁定，避免5.1默认更改；不是原版本的逐字节模型恢复。
+- 实际散点图：`Result2/Proteins/Plot_Fig5AB.R`的`pdf("Prot.de.pdf",height=4,width=5)`及实际ggplot/stat_cor/geom_text_repel段（宽5in，高4in）。原ylim/xlim/字体/灰点/黑拟合线/标题空行保持；新透明分支将ggrepel避让随机种子明确锁为134，保证反复绘制的标签布局可重复，不改变统计。新图反映新的398项选择，不更改已验收历史365节点/18648边对象。
+
+## 新旧比较
+
+新联合模型398项，历史396项；新λmin=0.0003848111，历史0.0004223297。新图367个有边节点、18628条有向边，Spearmanρ=0.7231944478、P=1.2248311e-60。历史已接受版本约ρ=0.724。本次新评分与历史评分Spearman=0.9991776，最大绝对差1.068465；不能仅因趋势相同称逐值复现。
+
+旧评分对象与本次CSV的age/sex/time/status全部逐值一致，故上述差异不能归因于本次换端点。完整CV路径/新旧选集/评分差值见`results/historical_comparison.json`及其CSV。原367蛋白选集恢复，但联合交叉验证的旧会话/版本未锁定。所有模型属于同队列apparent训练分析，不是独立验证。
+
+## 运行与输入
+
+```sh
+DISCO_INPUT_ROOT=/path/to/DISCO Rscript --vanilla code/run_fig4c.R /absolute/path/to/this/module
+Rscript --vanilla code/compare_full_raw_branch.R /absolute/path/to/this/module
+Rscript --vanilla code/plot_verified_raw_branch.R /absolute/path/to/this/module
+```
+
+输入路径和SHA在numerical acceptance；input下保留实际来源脚本快照，私有模型、评分、eid、fold名单在0700目录/0600RDS，不能进GitHub。共享原Pearson评分核借用`01_method_definition/ED4fh_full_recompute_20261008/code/score_kernel.cpp`，实际直接增广`cor(rbind())`探针误差2.2e-14。
+
+统计表分别保留原 residual `cor.test` 的N−2检验及正确age+sex partial test的N−4检验；不得把两个P列混称同一分析。图中ρ/P为跨节点网络度与|partial r|的Spearman检验，具有明确不同检验对象。
+
+历史网络边multiset验收未重跑、历史模型/对象未改；CURRENT/投稿全文/组图未替换。新图已经实际渲染/查看，若采用此分支应同步398项、节点/边数、相关统计与透明训练版本说明。

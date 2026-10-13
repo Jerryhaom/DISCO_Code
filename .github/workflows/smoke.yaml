@@ -10,9 +10,10 @@ jobs:
         with:
           python-version: '3.x'
       - run: Rscript verify_release.R
+      - run: Rscript tests/audit_metadata.R
       - run: Rscript run.R 01_method_definition/run_method_smoke_test.R
       - run: python -c "import ast,pathlib; [ast.parse(p.read_text()) for p in pathlib.Path('.').rglob('*.py')]"
-      - name: Install released DISCO4HD
-        run: Rscript -e 'install.packages("remotes", repos="https://cloud.r-project.org"); remotes::install_github("Jerryhaom/DISCO4HD@v0.3.0", upgrade="never")'
+      - name: Install validated DISCO4HD commit
+        run: Rscript -e 'install.packages("remotes", repos="https://cloud.r-project.org"); remotes::install_github("Jerryhaom/DISCO4HD@08db67ce4999ccd3f7e2e7d855f33cc851305ce9", upgrade="never")'
       - run: Rscript run.R 01_method_definition/run_synthetic_demo.R
       - run: Rscript run.R 10_biomarker_calculator/run_example.R

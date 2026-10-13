@@ -24,7 +24,7 @@ suppressMessages({
 root <- disco_project_root()
 out  <- disco_results_path("01_method_definition/outputs/sensitivity")
 dir.create(out, recursive = TRUE, showWarnings = FALSE)
-csv  <- disco_results_path("08_revision_analyses/outputs/R03_correlation_robustness")
+csv  <- disco_results_path("08_sensitivity_analyses/outputs/R03_correlation_robustness")
 
 # =====================================================================
 # R2.4  nonlinear-dependence detection

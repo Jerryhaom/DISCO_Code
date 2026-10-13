@@ -1,0 +1,20 @@
+{
+  "status": "EXECUTED",
+  "train_N": 31381,
+  "train_deaths": 3318,
+  "test_N": 13450,
+  "test_deaths": 1423,
+  "reference_N": 344,
+  "clock_models_retrained": false,
+  "frozen_20261006_models_reused": true,
+  "endpoint": "actual blood day + cutoff2022-12-31 + death priority",
+  "Cindex_rows": 162,
+  "HR_rows_both_scales": 144,
+  "PH_rows_both_bases": 180,
+  "S9_estimated_cells": 90,
+  "d_original_cells": 54,
+  "independent_direct_C_SE_checks": 324,
+  "warning_count": 0,
+  "piecewise_status": "post-hoc exploratory train-only sensitivity, not main replacement",
+  "input_code_sha256": ["af73f791c853e41e01225259450bb82a8c72de5e069c65b50c378cd795d95642", "018ac88b4321c6cef8a8259367ab1fc0717122fa31dbe7a6978cf6f5d949208e", "c2c9e92812aa12e30a982a4db60d39899463a51fe253f0ff3924bbf2bbd66714", "d09bc3777d179ff464198c86521214b92eca94b98b273e96b0975564704bc52a"]
+}
