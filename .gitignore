@@ -9,3 +9,15 @@ __pycache__/
 .Renviron
 renv/library/
 renv/staging/
+
+# Reviewed aggregate inputs only; other data/ contents remain ignored.
+!/approved/table1/data/
+/approved/table1/data/*
+!/approved/table1/data/Table1_analysis_sample_SD.csv
+!/approved/table1/data/Table1_existing_full_models.csv
+!/approved/table1/data/Table1_crude_C_index_details.csv
+!/approved/table1/data/contract.json
+!/submission_20261007/release_validation_20261007/data/
+/submission_20261007/release_validation_20261007/data/*
+!/submission_20261007/release_validation_20261007/data/current_aggregate_contract.json
+!/submission_20261007/release_validation_20261007/data/ED4e_matrix_distances_OFFICIAL_SS.csv

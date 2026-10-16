@@ -9,8 +9,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      - run: python verify_public_data.py --require-tracked
+      - run: python -m unittest discover -s tests -p "test_*.py" -v
       - run: Rscript verify_release.R
       - run: Rscript tests/audit_metadata.R
+      - run: Rscript tests/meta_input.R
+      - run: Rscript tests/prs_joint.R
       - run: Rscript run.R 01_method_definition/run_method_smoke_test.R
       - run: python -c "import ast,pathlib; [ast.parse(p.read_text()) for p in pathlib.Path('.').rglob('*.py')]"
       - name: Install validated DISCO4HD commit

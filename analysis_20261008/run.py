@@ -46,6 +46,7 @@ def main():
    for rel in contract.get('required_'+k+'_paths',[]):
     if not (base/rel).exists():raise SystemExit('Required input is missing: '+k+'/'+rel)
  out=a.output.resolve()
+ if out==ROOT.parent or ROOT.parent in out.parents:raise SystemExit('Output must be outside the code repository.')
  if a.mode=='ed1-observe':
   source_contract=json.loads((ROOT/'modules/source_data/original_source_contract.json').read_text())
   actual=hashlib.sha256(Path(config['simulation_source']).read_bytes()).hexdigest()

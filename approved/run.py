@@ -66,7 +66,7 @@ def main():
     if out.exists(): p.error('Output exists; use a new directory')
     if out==data or (data in out.parents and 'Results_final' not in out.relative_to(data).parts):
         p.error('Outputs cannot be placed in raw input trees')
-    if code in out.parents: p.error('Generated participant outputs cannot be inside the upload candidate')
+    if out==code.parent or code.parent in out.parents: p.error('Generated participant outputs cannot be inside the upload candidate')
     source_module={'organ_70_30_compare':'organ_70_30','organ_cause_ph':'organ_cause'}.get(a.module,a.module)
     required=[data / x for x in CONTRACTS[source_module]]
     if a.module=='organ_70_30_compare':

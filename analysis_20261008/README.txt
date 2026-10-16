@@ -39,30 +39,27 @@ The source manifest links original source hashes and exact mechanical diffs.
 No scoring definition, statistical model, seed, fold assignment, endpoint rule,
 or covariance convention is replaced by this integration.
 
-This candidate contains no RDS/RDA/RData objects, individual IDs, scores, dates,
-participant tables, fitted models, private keys, or binary wheels. Published web
-calculator source/fixtures from the previous public candidate are retained as
-source. Controlled-cohort reference registries are excluded until the owner gives
-redistribution confirmation. Consequently disco10_reference(), default named
-cal_disco10 references, and the reference-dependent NHANES simulator cannot run
-from this clean archive without a separately authorized registry. Core cal_disco
-supports caller-provided reference samples. The cal_disco10 API accepts an explicit
-reference list with class disco10_reference; its definition is retained.
-examples/caller_reference_example.R demonstrates a wholly synthetic caller-supplied
-reference, its required fields, and independent literal Pearson/DM agreement.
-After a local R package installation, run Rscript examples/caller_reference_example.R.
-Historical current/math_geometry also
-requires its omitted historical synthetic RDS; use theory-identities for a fully
-self-contained mathematical check. No omitted reference or participant data is
-downloaded automatically.
+The current combined source archive includes the previously public DISCO4HD
+aggregate reference registry and a generated synthetic NHANES example. Thus
+named disco10_reference() and cal_disco10() references are available after an R
+package installation. The registry contains cohort means, standard deviations,
+correlations, weights and comparison summaries, not participant records.
+Restricted participant tables, fitted participant-level objects and exact
+event-time curves are not included or downloaded automatically.
 
-DISCO4HD includes the 0.3.2 pure-Rcpp source change already checked in the separate
-10/8 local resolution module. Those 99 tests and R CMD check are evidence for that
-original reference-bearing package, not evidence for this restricted clean package.
-This candidate has its own fresh extraction, syntax, supported synthetic/aggregate
-execution and NumPy default installation evidence under the integration QA directory.
+examples/caller_reference_example.R demonstrates an entirely synthetic reference
+and independent literal Pearson/DM agreement. After a local R package installation,
+run Rscript examples/caller_reference_example.R. Historical current/math_geometry
+requires an omitted historical synthetic RDS; use theory-identities for a
+self-contained mathematical check. The source_manifest.json records the original
+October 8 integration; the enclosing archive's SOURCE_MANIFEST.json records
+current file hashes and subsequent edits.
+
+Module names retain the labels at source creation: fig4c refers to the current
+Fig. 4d network-degree panel, and s11b refers to the ED12 outcome-power analysis.
+Use the latest panel/source mapping when assembling the manuscript.
 
 Original source authorship, provenance and LICENSE files are retained. Scientific
-acceptance is based on numeric/structural checks, not word filtering. This is a
-local review package; author/license confirmation and any external publication
-remain outstanding. CI configuration does not establish Linux/Windows execution.
+acceptance is based on numeric/structural checks, not word filtering. This analysis source is a
+local review candidate. CI results for the separate R package do not validate
+restricted cohort analyses or the Python package on other platforms.

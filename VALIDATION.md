@@ -1,3 +1,24 @@
+# Current release review: 16 October 2026
+
+The clean source review restored six reviewed aggregate/contract files previously
+excluded by the broad `data/` ignore rule. `verify_public_data.py` now checks the
+47 aggregate and metadata inputs by hash; CI also requires them to be tracked.
+The metadata, meta-analysis, joint-contrast and launcher checks pass locally.
+Five no-private-input analysis modes and the dated Table 1/ED4e aggregate entries
+ran successfully. The latest DM and matched-protein input checks found all 8 and
+6 required local files; the current R model sources retain their provenance hashes.
+This review checked their saved coefficients and confidence intervals without
+refitting participant-level models.
+
+The separate R package passed `R CMD check --no-manual` with 99 expectations.
+Python 1.0.2 passed 11 tests with its compiled C++ backend on macOS, including R
+comparison and real-input guards. Its pure NumPy wheel also passed, with the
+5 optional native-only tests explicitly skipped. Python cross-platform execution
+is not established by the R package CI. The calculator passed 15 tests and its
+embedded evidence check. New local changes are not yet a hosted release.
+
+## Earlier validation records
+
 # Local checklist-action candidate validation (2026-10-06)
 
 This is a separate local candidate, not the earlier upload tree or a remote release. The approved entries genuinely re-executed Table 1 standardization/imputation, UKB IPAQ, CIF, corrected organ cause-specific risk sets, and NMR/core downstream calculations. A comparison-only replay of the newly trained 70:30 clock scores re-executed all 162 C-index models and TRAIN HR/PH; the 18 clocks were not trained again in this software check. Independent aggregate checks match the dated analysis outputs. The full training entry has checked inputs but still requires controlled endpoint intermediates and locally obtained third-party sources.

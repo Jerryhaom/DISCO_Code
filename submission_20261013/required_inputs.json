@@ -1,0 +1,20 @@
+{
+  "dm": [
+    "03_multimodal_UKB/Fig3c_PA_adjusted_20261010/tables/Fig3c_8cov_perSD_HR_48.csv",
+    "03_multimodal_UKB/Fig3c_PA_adjusted_20261010/tables/Fig3c_8cov_sample_flow_24.csv",
+    "03_multimodal_UKB/Fig3c_font_plus1_20261010/results/plot_objects.rds",
+    "03_multimodal_UKB/inputs_private_20261007/private_materialized/data/hm/UKB/month_disease_prs_execution_20261007/input_clinical.csv",
+    "03_multimodal_UKB/inputs_private_20261007/private_materialized/data/hm/UKB/month_disease_prs_execution_20261007/input_proteomics.csv",
+    "03_multimodal_UKB/inputs_private_20261007/private_materialized/data/hm/UKB/month_disease_prs_execution_20261007/private_endpoint_8.csv",
+    "03_multimodal_UKB/inputs_private_20261007/private_materialized/data/hm/UKB/targeted_endpoint_diagnostics_20261007.JaNZnJ/input_clinicalprot.csv",
+    "03_multimodal_UKB/targeted_endpoint_diagnostics_20261007/three_modalities_execution_QA.json"
+  ],
+  "matched": [
+    "03_multimodal_UKB/inputs_private_20261007/018ac88b4321c6cef8a8259367ab1fc0717122fa31dbe7a6978cf6f5d949208e_private_organ_endpoint.csv.gz",
+    "03_multimodal_UKB/inputs_private_20261007/6a881e52a35fb9d132657f93d787bed108a8e5733af1413ed50576e10480c139_input_organ.csv.gz",
+    "03_multimodal_UKB/inputs_private_20261007/af73f791c853e41e01225259450bb82a8c72de5e069c65b50c378cd795d95642_scores_7030.csv.gz",
+    "03_multimodal_UKB/inputs_private_20261007/private_materialized/data/hm/UKB/organ_endpoint_repairs_20261007_run01/matched_scores.csv",
+    "05_organ_network/ED10bc_mortality_fully_adjusted_20261010/results/training_HR_fully_adjusted_72.csv",
+    "05_organ_network/endpoint_repairs_20261007/output/clock/training_calibration.csv"
+  ]
+}

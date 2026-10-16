@@ -1,6 +1,6 @@
 # DISCO_Code — article analysis and figure code
 
-Current scoring and correction modules are documented in [current/README.md](current/README.md). Historical figure replay is retained separately and does not certify every current manuscript panel.
+For the latest disease log(DM) and matched-protein DISCO/clock analyses, start with [submission_20261013/README.md](submission_20261013/README.md). The [October 8 analysis integration](analysis_20261008/README.txt) provides additional sensitivity analyses and aggregate replay. Earlier modules in [current/README.md](current/README.md) and dated directories retain their original scope; see [RELEASE_ENTRIES.md](RELEASE_ENTRIES.md) before selecting an entry.
 
 The 6 October approved Table 1 standardization/imputation, UKB IPAQ, organ cause-specific risk-set correction, CIF sensitivity, NMR correction and new 70:30 organ-clock entries are in [approved/README.txt](approved/README.txt). These dated branches retain explicit provisional endpoint status. They do not make every historical entry a final manuscript pipeline.
 
@@ -30,11 +30,11 @@ This repository contains analysis, simulation and figure replay scripts. **Restr
 
 ## Start here
 
-Install **DISCO4HD >= 0.3.1** from its separate repository (an R source compiler is required for Rcpp), then clone this analysis repository. The matching package release must be published before the analysis workflow is enabled:
+Install the validated **DISCO4HD 0.3.2** commit below (an R source compiler is required for Rcpp), or install the bundled DISCO4HD source with `R CMD INSTALL`. Then clone this analysis repository:
 
 ```r
 install.packages("remotes")
-remotes::install_github("Jerryhaom/DISCO4HD")
+remotes::install_github("Jerryhaom/DISCO4HD@08db67ce4999ccd3f7e2e7d855f33cc851305ce9")
 ```
 
 ```sh
