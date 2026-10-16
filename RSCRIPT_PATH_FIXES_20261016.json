@@ -1,0 +1,119 @@
+{
+  "scope": "Entry-path portability only. Original source hashes remain preserved in dated provenance.",
+  "files": [
+    {
+      "path": "08_sensitivity_analyses/04_meta_analysis.R",
+      "before_sha256": "0d587fc068b9cd9702eddffe7f7e419221351364b0bea2b380e1b144ec3c6522",
+      "after_sha256": "3c3118f4d92a4504b552454ab2b5816db9e4394aa0c141d4535989c97a9514bc",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "10_biomarker_calculator/run_synthetic_nhanes.R",
+      "before_sha256": "43ae073e38a7eefcc36e05bb9834fbeb62b0a8ea99b170f92d637ea124984e47",
+      "after_sha256": "5e346edbd9b4b8ecf546dff1e18cf1d786a296f34f8cc3ee72e7d4496d8a4a60",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "approved/CIF/01_compute.R",
+      "before_sha256": "1ffc468c3e853e4a8172b4ae3504f8177dea05db8fd38ba42a1cbf48f07af75c",
+      "after_sha256": "169add511efc06157e1bb5ece41533d880faac88243a86f1bff1c65c5345e666",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "approved/CIF/02_plot.R",
+      "before_sha256": "67079b5d4a938d1b73ff3e754fa8f2f132f4f124f9243be8a214ef4abf6f26a3",
+      "after_sha256": "a335702fcaf2a5ce7bb34597b3d358ac0755dc88b17b525c68d9070bfbc15adc",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "approved/organ_70_30/01_prepare.R",
+      "before_sha256": "20798c57a407bd4c00e23e4a84fd8ecf961fc8124990dca330573595436c54d9",
+      "after_sha256": "99feffc57c28415160830a8a47e9d11e1bb06bbf331d36e920f2982c627a77a1",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "approved/organ_70_30/03_DISCO_scores.R",
+      "before_sha256": "f488ff56b939efe26f7b75b69517f2b50bff018046d6d0d949e3c2ed8bb30578",
+      "after_sha256": "30888925fa3f431eff8a597c6e00103b5ad3e6985768ecf391aab8cc833e7173",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "approved/organ_70_30/04_compare.R",
+      "before_sha256": "ae083cd434864af0523bf7e610be004884150ef96f33fa95a01111cce89f821a",
+      "after_sha256": "842c45758dcf8cf3540fe74879cb49dc3ba7818d105f0900504935d017068a6b",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "approved/organ_70_30/05_plot_d.R",
+      "before_sha256": "2129cf547f50123d1285bc6f96f338054f47a660ba6bd297013f709c894e0be1",
+      "after_sha256": "4709e05172c0352392aff366dab8ced61f18bf33cb7c87183687d521fb3d2c8c",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "approved/organ_70_30/06_plot_matched.R",
+      "before_sha256": "2674d4064e0794a5a2388a8a6f3859e848b6aa667299114022f31d7424ef879e",
+      "after_sha256": "3bac36f2c8f480e6e3acb5e36d2d533f7cdd0ed646a03747d1342816630817e5",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "current/sources/organ_abc_compute.R",
+      "before_sha256": "2c3bdf94dd5f348a57d89d5b85dbbc4aa7578adb35f0cfe18a84899c06de4aba",
+      "after_sha256": "ded2679782740ad33761d531c0c177a6f3d32d14cb51f0d74f1e5381859995db",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "current/sources/organ_d_compute.R",
+      "before_sha256": "1e8dadf87813557d27664695cef6abed6c30f0ba142602b1e95240fc64c617ea",
+      "after_sha256": "af3ef36446b755171d21296b6cac5c4c4ec7d4415b30cd7dd7a5d8877e4af4c2",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "current/sources/organ_d_plot.R",
+      "before_sha256": "7fbf5cc052e8dd4707d28a3e99a67653e4bca1eb916840f8c6f7f191886d506e",
+      "after_sha256": "cca0fe5499e3e5ba80e8faf0e072f9c99a3841664fee8c6845fb41649369fcd9",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "current/sources/organ_plot_source.R",
+      "before_sha256": "a8846607cc0a57d6fa226e72ebe1aef1673da060e4b4c4085011ae6572729dd8",
+      "after_sha256": "9bc4acad4f95863d08c95a2376599c8c2aa9a401361e71b2a6720015273953ad",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "current/sources/protein_sensitivity_compute.R",
+      "before_sha256": "f759522671e9d7e098aa66edccc16eb914771d90039844476ff4cde1944b8b63",
+      "after_sha256": "527c783a86a759308ec891735015c209c30a37d056bf967cee3cd1180e74b2b3",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "current/sources/protein_sensitivity_plot.R",
+      "before_sha256": "472bd1b9307a5aa8a86c665d1f176eb5e244d2e05479eedb9b69c9775e9017af",
+      "after_sha256": "936e0dd3052002182cd018069d4b907f3ac610c4e910eee515b2b090b53b906d",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "submission_20261007/release_validation_20261007/plot_ED4e_current.R",
+      "before_sha256": "2d3f5a31a3bec4940082e4c523a285849b5bba802c85fd037eb4118eece679e8",
+      "after_sha256": "2b2895b345a49123e376baddc4950377a49c230ab85136bd20ef6c7def9df503",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "submission_20261007/release_validation_20261007/run_current_table1_meta.R",
+      "before_sha256": "c9f08b2beda1c1288f7c4e503705e2a89db27d2d4fe8ee2c7e8c704dc56508e0",
+      "after_sha256": "a123e1d553bc5185312a6812862f2222e16bfbe423364899b394df31847a09ef",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "submission_20261007/sources/03_multimodal_UKB/month_disease_prs_execution_20261007/fit_models.R",
+      "before_sha256": "fbbbbf2cc6c3921ae9c06e0be2b9f2ede3a0c44e80267f782e1cfc04669c6c00",
+      "after_sha256": "bc6ddb731ef89e4ed9791e48b020bf703a5f88c5a9d1d42480925b44e5d9bbdc",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    },
+    {
+      "path": "submission_20261007/sources/03_multimodal_UKB/targeted_endpoint_diagnostics_20261007/complete_three_modalities.R",
+      "before_sha256": "e77995d831a4b985885a6b2f5987beb3cc25fba9c3bbe6c021f06902ab90c87b",
+      "after_sha256": "7b5f3a20be8b06a0c30acc7700a464033584445250dba05cd9cba160dee21c06",
+      "change": "Decode Rscript --file space escaping before resolving entry path; model and plotting expressions unchanged."
+    }
+  ]
+}

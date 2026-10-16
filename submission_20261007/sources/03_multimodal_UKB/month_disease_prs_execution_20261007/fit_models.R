@@ -10,7 +10,7 @@ options(stringsAsFactors=FALSE,warn=1)
 suppressPackageStartupMessages({library(data.table);library(survival);library(jsonlite);library(digest)})
 setDTthreads(1)
 a<-commandArgs(TRUE);mod<-a[1];task<-a[2]
-entry<-sub('^--file=','',grep('^--file=',commandArgs(),value=TRUE)[1]);root<-dirname(normalizePath(entry))
+entry<-sub('^--file=','',grep('^--file=',commandArgs(),value=TRUE)[1]);root<-dirname(normalizePath(gsub("~+~", " ", entry, fixed=TRUE)))
 out<-file.path(root,paste(mod,task,sep='_'));dir.create(out,showWarnings=FALSE,mode='0700')
 m<-fread(file.path(root,paste0('input_',mod,'.csv')));stopifnot(!anyDuplicated(m$eid))
 m[,zD:=as.numeric(scale(mc))];m[,zDM:=as.numeric(scale(log(hd)))];m[,sex:=factor(sex)]
@@ -132,6 +132,6 @@ fwrite(comparison,file.path(out,'old_new_comparison.csv'))
 write_json(list(modality=mod,task=task,status='EXECUTED',model_rows=nrow(r),errors=errors,
  input_N=nrow(m),time_unit='days/(365.25/12)',joint='f1 contrast (zD,zPRS)=(1,1) vs (0,0): betaD+betaPRS+betaDxPRS; full covariance',
  race_missing='missing/blank imputed to White (author-approved C02 rule)',date_tie='death-first analysis convention; disease-first sensitivity',
- code_sha256=digest(file=normalizePath(entry),algo='sha256')),file.path(out,'execution_QA.json'),pretty=TRUE,auto_unbox=TRUE)
+ code_sha256=digest(file=normalizePath(gsub("~+~", " ", entry, fixed=TRUE)),algo='sha256')),file.path(out,'execution_QA.json'),pretty=TRUE,auto_unbox=TRUE)
 capture.output(sessionInfo(),file=file.path(out,'sessionInfo.txt'))
 cat('DONE',mod,task,'\n')

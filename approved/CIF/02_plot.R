@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 if(nzchar(Sys.getenv('DISCO_R_LIB'))) .libPaths(c(Sys.getenv('DISCO_R_LIB'),.libPaths()))
 suppressPackageStartupMessages({library(data.table);library(ggplot2);library(jsonlite)})
-entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);here<-dirname(normalizePath(entry))
+entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);here<-dirname(normalizePath(gsub("~+~", " ", entry, fixed=TRUE)))
 out<-file.path(here,'output/pdf');dir.create(out,recursive=TRUE,showWarnings=FALSE)
 a<-fread(file.path(here,'pass_1/curves_aggregate.csv'))
 labels<-c('Obesity','Hypertension','Diabetes','Cancer','Myocardial infarction','Stroke','COPD','Dementia')

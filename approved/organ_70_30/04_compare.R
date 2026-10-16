@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(entry))
+entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(gsub("~+~", " ", entry, fixed=TRUE)))
 base<-file.path(Sys.getenv('DISCO_DATA_ROOT'),'Results_final');.libPaths(c(file.path(base,'09_figures_tables/Rlibs'),.libPaths()))
 suppressPackageStartupMessages({library(data.table);library(jsonlite);library(survival);library(Rcpp);library(digest)})
 setDTthreads(1);Sys.umask('0077');options(warn=1);sink(file.path(out,'logs/04_compare.log'),split=TRUE)

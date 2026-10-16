@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 # Current locked Table 1 aggregate entry; no HR literals or participant fits.
 entry <- sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1])
-here <- dirname(normalizePath(entry,mustWork=TRUE))
+here <- dirname(normalizePath(gsub("~+~", " ", entry, fixed=TRUE),mustWork=TRUE))
 repo <- dirname(dirname(here))
 suppressPackageStartupMessages({library(digest);library(jsonlite)})
 source(file.path(repo,'approved','meta_functions.R'))

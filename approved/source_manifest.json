@@ -52,15 +52,17 @@
     "candidate": "CIF/01_compute.R",
     "original_source": "Results_final/03_multimodal_UKB/CIF_sensitivity_20261006/01_compute.R",
     "original_sha256": "61068a54b808256caed092f8177237e208062aeff21336572efb6889d8633bf3",
-    "candidate_sha256": "1ffc468c3e853e4a8172b4ae3504f8177dea05db8fd38ba42a1cbf48f07af75c",
-    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+    "candidate_sha256": "169add511efc06157e1bb5ece41533d880faac88243a86f1bff1c65c5345e666",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "1ffc468c3e853e4a8172b4ae3504f8177dea05db8fd38ba42a1cbf48f07af75c"
   },
   {
     "candidate": "CIF/02_plot.R",
     "original_source": "Results_final/03_multimodal_UKB/CIF_sensitivity_20261006/02_plot.R",
     "original_sha256": "b630a9589006c4fef3d0396c275b8db61a530dfdf11acdf4024cdfc16f42fda0",
-    "candidate_sha256": "67079b5d4a938d1b73ff3e754fa8f2f132f4f124f9243be8a214ef4abf6f26a3",
-    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+    "candidate_sha256": "a335702fcaf2a5ce7bb34597b3d358ac0755dc88b17b525c68d9070bfbc15adc",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "67079b5d4a938d1b73ff3e754fa8f2f132f4f124f9243be8a214ef4abf6f26a3"
   },
   {
     "candidate": "CIF/PROTOCOL.txt",
@@ -101,8 +103,9 @@
     "candidate": "organ_70_30/01_prepare.R",
     "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/01_prepare.R",
     "original_sha256": "7d84412dd12e393a80c2f2f3973954c3bc0900ebeb3be08cda7ad11c5f557c7b",
-    "candidate_sha256": "20798c57a407bd4c00e23e4a84fd8ecf961fc8124990dca330573595436c54d9",
-    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+    "candidate_sha256": "99feffc57c28415160830a8a47e9d11e1bb06bbf331d36e920f2982c627a77a1",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "20798c57a407bd4c00e23e4a84fd8ecf961fc8124990dca330573595436c54d9"
   },
   {
     "candidate": "organ_70_30/02_train_clocks.py",
@@ -115,29 +118,33 @@
     "candidate": "organ_70_30/03_DISCO_scores.R",
     "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/03_DISCO_scores.R",
     "original_sha256": "30eb53193eea1404b9d994fc2992eb9f3bd42fd848f7acb214157e30f5162c85",
-    "candidate_sha256": "f488ff56b939efe26f7b75b69517f2b50bff018046d6d0d949e3c2ed8bb30578",
-    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+    "candidate_sha256": "30888925fa3f431eff8a597c6e00103b5ad3e6985768ecf391aab8cc833e7173",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "f488ff56b939efe26f7b75b69517f2b50bff018046d6d0d949e3c2ed8bb30578"
   },
   {
     "candidate": "organ_70_30/04_compare.R",
     "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/04_compare.R",
     "original_sha256": "8e703a4131f8c62f186c64ff956a6a7f1954e98f36d1bbf513ea58358fe39082",
-    "candidate_sha256": "ae083cd434864af0523bf7e610be004884150ef96f33fa95a01111cce89f821a",
-    "adaptation": "source/data/output path dispatch; explicit comparison-only frozen-input read path"
+    "candidate_sha256": "842c45758dcf8cf3540fe74879cb49dc3ba7818d105f0900504935d017068a6b",
+    "adaptation": "source/data/output path dispatch; explicit comparison-only frozen-input read path; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "ae083cd434864af0523bf7e610be004884150ef96f33fa95a01111cce89f821a"
   },
   {
     "candidate": "organ_70_30/05_plot_d.R",
     "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/05_plot_d.R",
     "original_sha256": "e4320c29e06a98d0ff9c99302f82372cae66958a297074ea71f7674bd1a90416",
-    "candidate_sha256": "2129cf547f50123d1285bc6f96f338054f47a660ba6bd297013f709c894e0be1",
-    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+    "candidate_sha256": "4709e05172c0352392aff366dab8ced61f18bf33cb7c87183687d521fb3d2c8c",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "2129cf547f50123d1285bc6f96f338054f47a660ba6bd297013f709c894e0be1"
   },
   {
     "candidate": "organ_70_30/06_plot_matched.R",
     "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/06_plot_matched.R",
     "original_sha256": "6fa85bdf441f2fbccfd0155c8d97715eda3273a576b44ea452117c83868e9806",
-    "candidate_sha256": "2674d4064e0794a5a2388a8a6f3859e848b6aa667299114022f31d7424ef879e",
-    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+    "candidate_sha256": "3bac36f2c8f480e6e3acb5e36d2d533f7cdd0ed646a03747d1342816630817e5",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "2674d4064e0794a5a2388a8a6f3859e848b6aa667299114022f31d7424ef879e"
   },
   {
     "candidate": "organ_70_30/PROTOCOL.txt",

@@ -17,6 +17,11 @@ comparison and real-input guards. Its pure NumPy wheel also passed, with the
 is not established by the R package CI. The calculator passed 15 tests and its
 embedded evidence check. New local changes are not yet a hosted release.
 
+Fresh extraction into a path containing spaces exposed Rscript `--file` escaping
+in older entries. The affected entry-path expressions now decode spaces before
+normalization; no statistical expressions changed. Exact file hashes are recorded
+in `RSCRIPT_PATH_FIXES_20261016.json`.
+
 ## Earlier validation records
 
 # Local checklist-action candidate validation (2026-10-06)

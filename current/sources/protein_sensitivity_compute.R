@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 # Protein-set sensitivity of the actual ED10d models. Raw inputs are immutable.
-entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(entry))
+entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(gsub("~+~", " ", entry, fixed=TRUE)))
 root<-Sys.getenv('DISCO_DATA_ROOT');base<-file.path(root,'Results_final')
 suppressPackageStartupMessages({library(data.table);library(survival);library(jsonlite);library(Rcpp);library(digest)})
 setDTthreads(1);options(warn=2);Sys.umask('0077')

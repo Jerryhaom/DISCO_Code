@@ -133,6 +133,6 @@ write_json(list(status='EXECUTED',new_fit_count=fitted,exact_scale_conversion_co
  C_index='Apparent Harrell C; crude C from own score-only complete-case sample. Adjusted HR has separately reported denominator',
  figure_status='Numerical candidate only; original plotting segment and final manuscript/table version not modified',
  provider_coverage='Not established by this targeted run; approved 2022-12-31 is not proof of complete provider coverage',
- code_sha256=digest(file=normalizePath(entry),algo='sha256')),file.path(out,'three_modalities_execution_QA.json'),pretty=TRUE,auto_unbox=TRUE)
+ code_sha256=digest(file=normalizePath(gsub("~+~", " ", entry, fixed=TRUE)),algo='sha256')),file.path(out,'three_modalities_execution_QA.json'),pretty=TRUE,auto_unbox=TRUE)
 capture.output(sessionInfo(),file=file.path(out,'three_modalities_sessionInfo.txt'))
 cat('DONE: 120 targeted fits and 96 exact scale conversions; no historical output overwritten\n')

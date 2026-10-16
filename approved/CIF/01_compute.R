@@ -2,7 +2,7 @@
 if(nzchar(Sys.getenv('DISCO_R_LIB'))) .libPaths(c(Sys.getenv('DISCO_R_LIB'),.libPaths()))
 suppressPackageStartupMessages({library(survival);library(data.table);library(jsonlite);library(digest)})
 args<-commandArgs(TRUE);stopifnot(length(args)==1,args[1]%in%c('pass_1','pass_2'))
-entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);here<-dirname(normalizePath(entry))
+entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);here<-dirname(normalizePath(gsub("~+~", " ", entry, fixed=TRUE)))
 out<-file.path(here,args[1]);dir.create(out,recursive=TRUE,showWarnings=FALSE)
 root<-Sys.getenv('DISCO_DATA_ROOT');setDTthreads(1)
 inputs<-c(scores=file.path(root,'Result2/UKB.ClinicalProt.DISCO.rds'),

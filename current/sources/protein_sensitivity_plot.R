@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(entry))
+entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(gsub("~+~", " ", entry, fixed=TRUE)))
 suppressPackageStartupMessages({library(ggplot2);library(patchwork);library(data.table);library(jsonlite);library(grid)})
 d<-fread(file.path(out,'numeric/panel_d_matched_Cindex.csv'),data.table=FALSE)
 d$score<-factor(d$score,levels=c('Goeminne','Oh','DISCO_Goeminne','DISCO_Oh','DISCO'))

@@ -2,7 +2,7 @@
 # Single source: current Table 1, five independent cohorts, final analysis-sample SD.
 suppressPackageStartupMessages({library(digest);library(jsonlite)})
 entry <- sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1])
-repo <- dirname(dirname(normalizePath(entry,mustWork=TRUE)))
+repo <- dirname(dirname(normalizePath(gsub("~+~", " ", entry, fixed=TRUE),mustWork=TRUE)))
 source(file.path(repo,'approved/meta_functions.R'))
 args <- commandArgs(trailingOnly=TRUE)
 if (length(args)!=3L || args[3]!='--allow-provisional')

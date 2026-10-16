@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 # Same identified Test_Distance.R ggplot block, from accepted aggregate cells.
 entry <- sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1])
-here <- dirname(normalizePath(entry,mustWork=TRUE))
+here <- dirname(normalizePath(gsub("~+~", " ", entry, fixed=TRUE),mustWork=TRUE))
 suppressPackageStartupMessages(library(ggplot2))
 args <- commandArgs(TRUE)
 input <- if(length(args)>=1L)normalizePath(args[1],mustWork=TRUE) else file.path(here,'data','ED4e_matrix_distances_OFFICIAL_SS.csv')

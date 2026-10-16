@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(entry))
+entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(gsub("~+~", " ", entry, fixed=TRUE)))
 suppressPackageStartupMessages({library(survival);library(data.table);library(jsonlite)})
 setDTthreads(1);options(warn=2)
 for(x in c('numeric','qa','logs','panels','output/pdf'))dir.create(file.path(out,x),recursive=TRUE,showWarnings=FALSE)

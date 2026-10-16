@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(entry))
+entry<-sub('^--file=','',grep('^--file=',commandArgs(FALSE),value=TRUE)[1]);out<-dirname(normalizePath(gsub("~+~", " ", entry, fixed=TRUE)))
 root<-Sys.getenv('DISCO_DATA_ROOT');base<-file.path(root,'Results_final');old<-file.path(file.path(Sys.getenv('DISCO_DATA_ROOT'),'Results_final/05_organ_network/organ_clock_comparison'),'20261002_local_rebuild')
 .libPaths(c(file.path(base,'09_figures_tables/Rlibs'),.libPaths()))
 suppressPackageStartupMessages({library(data.table);library(jsonlite);library(digest)})
