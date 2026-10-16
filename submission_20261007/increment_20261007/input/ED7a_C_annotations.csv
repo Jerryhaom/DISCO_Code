@@ -1,0 +1,17 @@
+disease,disease_key,label,DISCO_C,DM_C,N,events,C_method
+Obesity,obesity,"DISCO C-index: 0.614
+DM C-index: 0.571",0.614361373741501,0.570760236608485,45771,3740,"Apparent Harrell C; score-only Cox; time since blood baseline, not attained-age Cox; saved new-endpoint crude results; raw DM"
+Hypertension,hypertension,"DISCO C-index: 0.642
+DM C-index: 0.590",0.642049778314077,0.590315212704617,33924,6579,"Apparent Harrell C; score-only Cox; time since blood baseline, not attained-age Cox; saved new-endpoint crude results; raw DM"
+Diabetes,diabetes,"DISCO C-index: 0.721
+DM C-index: 0.668",0.72113116998508,0.668382868308457,45764,3228,"Apparent Harrell C; score-only Cox; time since blood baseline, not attained-age Cox; saved new-endpoint crude results; raw DM"
+Cancer,cancer,"DISCO C-index: 0.590
+DM C-index: 0.564",0.590206650807367,0.563650972145539,42718,7236,"Apparent Harrell C; score-only Cox; time since blood baseline, not attained-age Cox; saved new-endpoint crude results; raw DM"
+Myocardial infarction,mi,"DISCO C-index: 0.679
+DM C-index: 0.623",0.678514627107702,0.622657268159857,45913,1680,"Apparent Harrell C; score-only Cox; time since blood baseline, not attained-age Cox; saved new-endpoint crude results; raw DM"
+Stroke,stroke,"DISCO C-index: 0.680
+DM C-index: 0.619",0.680057326890692,0.619413151485655,46358,1167,"Apparent Harrell C; score-only Cox; time since blood baseline, not attained-age Cox; saved new-endpoint crude results; raw DM"
+COPD,copd,"DISCO C-index: 0.738
+DM C-index: 0.659",0.738056896601349,0.659397038755089,46067,1993,"Apparent Harrell C; score-only Cox; time since blood baseline, not attained-age Cox; saved new-endpoint crude results; raw DM"
+Dementia,dementia,"DISCO C-index: 0.731
+DM C-index: 0.643",0.731363064808156,0.643399970902015,47130,1227,"Apparent Harrell C; score-only Cox; time since blood baseline, not attained-age Cox; saved new-endpoint crude results; raw DM"

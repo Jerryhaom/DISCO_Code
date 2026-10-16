@@ -18,7 +18,7 @@ dat <- read.csv(disco_path("Manuscript/PNAS/cindex_comparison.csv"),
 label_map <- c(
   mc            = "DISCO+Age",
   hd            = "DM+Age",
-  DunedinPoAm   = "DunedinPACE",
+  DunedinPoAm   = "DunedinPoAm",
   GrimAgeMort   = "GrimAge",
   PhenoAge      = "PhenoAge",
   HannumAge     = "Hannum",

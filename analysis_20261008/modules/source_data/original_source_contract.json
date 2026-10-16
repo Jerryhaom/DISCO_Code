@@ -1,0 +1,49 @@
+{
+  "upstream_logical_source": "Simulation/Sim_Distances.R",
+  "whole_source_sha256": "c3dfe2f966a78eb5111747145c19f1b145b715c2db31499b15543bb7fdcff9e7",
+  "whole_source_required_from_caller": true,
+  "blocks": [
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/source_data/source/definitions_3_101.R",
+      "upstream_logical_source": "Simulation/Sim_Distances.R",
+      "first_line": 3,
+      "last_line": 101,
+      "sha256": "e21bdffc232c288136a2cdf58e36291153d55c720e8656d3517a778a5e30a963"
+    },
+    {
+      "member": "DISCO_Code/analysis_20261008/modules/source_data/source/ED1_function_681_788.R",
+      "upstream_logical_source": "Simulation/Sim_Distances.R",
+      "first_line": 681,
+      "last_line": 788,
+      "sha256": "551e752448fcc259b3c212081f40cc75abd129fec4e347118b77022f23fd5bc1"
+    }
+  ],
+  "seed": 123,
+  "rhos": [
+    0.1,
+    0.7
+  ],
+  "n": 1000,
+  "p": 10,
+  "noise_SD_levels": [
+    0,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1,
+    1.2,
+    1.4,
+    1.6,
+    1.8,
+    2
+  ],
+  "subject_rows_per_rho": 11000,
+  "entropy_definition": "Original full logdet difference, twice Gaussian signed DeltaH; not absolute entropy or corrected S1–S5 half convention",
+  "observer": "Read-only capture immediately before unchanged return; no calculation or RNG replacement",
+  "original_call_lines": [
+    790,
+    791
+  ],
+  "permission": "Original source licensing preserved; publication confirmation still required; no participant records in these synthetic excerpts."
+}

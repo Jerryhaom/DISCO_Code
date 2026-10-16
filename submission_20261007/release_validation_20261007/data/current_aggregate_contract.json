@@ -1,0 +1,20 @@
+{
+  "table1_sha256": "b93b49dbad8d8cb15f7e8dc08b7fdff0b48e02801571bab3a7d92a4fd96480c6",
+  "table1_rows": 10,
+  "cohorts": [
+    "NHANES",
+    "UKB clinical",
+    "CHARLS",
+    "CLHLS",
+    "RuLAS wave 2"
+  ],
+  "metric_transform": "DISCO; natural-log DM; each per analysis-sample SD",
+  "table1_source_scope": "Locked updated five-cohort aggregate. UKB N=487335/events=42770; other four cohorts retained, not raw-refitted here.",
+  "ED4e_input_sha256": "0ab097009bd06ab4ed1dddd0adf8d9912a90bd68a78cbe1d2fa11d4cb7aa3c2a",
+  "ED4e_rows": 11,
+  "ED4e_scope": "Official CovTools 0.5.7 SS corrected; nine historical cells/default precision retained; one-model-SE bars; no public participant refit.",
+  "source_paths_relative_to_analysis_workspace": {
+    "table1": "03_multimodal_UKB/month_endpoint_execution_20261007/Table1_updated_five_cohorts.csv",
+    "SS": "01_method_definition/covtools_risksets_20261007/results/ED4e_plot_input_11.csv"
+  }
+}

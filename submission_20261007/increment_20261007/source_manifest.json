@@ -1,0 +1,276 @@
+{
+  "base_member_count": 382,
+  "base_archive_sha256": "0c03bc44b40a4753ad075f024862f49d982ad7ac7de12f828965119904b7279a",
+  "old_member_bytes_unchanged": true,
+  "private_participant_data_bundled": false,
+  "private_fit_x_y_data_bundled": false,
+  "new_dependencies_embedded": false,
+  "source_commits_available": false,
+  "sources": [
+    {
+      "source_relative": "Simulation/simdata/Simulation2.R",
+      "original_sha256": "2a0f5883f9ea577403605193f769f05ce6eec155ac797533b2f3d2284151e6bf",
+      "lines": [
+        [
+          23,
+          34
+        ],
+        [
+          58,
+          156
+        ]
+      ],
+      "public_relative": "source/generator_original.R",
+      "public_sha256": "286e2d934ff7beb23d51be46cb4d59444e268293def0f7ab9e3787a0b272800b",
+      "adaptation": "Exact original source segments; no formula change",
+      "author_attribution": "DISCO article analysis source",
+      "source_commit": null,
+      "commit_note": "Original local source not in an available Git checkout; SHA256 is authoritative"
+    },
+    {
+      "source_relative": "Simulation/Simu_Survival.R",
+      "original_sha256": "572675dfd9fdbe0ac19a148306892583a5e61777dea013dc036cd6eb0aa4d59a",
+      "lines": [
+        [
+          12,
+          104
+        ]
+      ],
+      "public_relative": "source/distance_original.R",
+      "public_sha256": "e64c53eef544abb7983c51b0c32a5037e48109fe6f1cc7e2925a0c8f8a22a560",
+      "adaptation": "Exact original source segments; no formula change",
+      "author_attribution": "DISCO article analysis source",
+      "source_commit": null,
+      "commit_note": "Original local source not in an available Git checkout; SHA256 is authoritative"
+    },
+    {
+      "source_relative": "Simulation/Simu_Survival.R",
+      "original_sha256": "572675dfd9fdbe0ac19a148306892583a5e61777dea013dc036cd6eb0aa4d59a",
+      "lines": [
+        [
+          115,
+          122
+        ]
+      ],
+      "public_relative": "source/score_block_original.R",
+      "public_sha256": "4caf6c53a80499439ff6c8332c866fab760c4603872d6594a45e8baa159c02a3",
+      "adaptation": "Exact original source segments; no formula change",
+      "author_attribution": "DISCO article analysis source",
+      "source_commit": null,
+      "commit_note": "Original local source not in an available Git checkout; SHA256 is authoritative"
+    },
+    {
+      "source_relative": "Simulation/Simu_Survival.R",
+      "original_sha256": "572675dfd9fdbe0ac19a148306892583a5e61777dea013dc036cd6eb0aa4d59a",
+      "lines": [
+        [
+          125,
+          142
+        ]
+      ],
+      "public_relative": "source/Cox_block_original.R",
+      "public_sha256": "1a86914ab409b74eed3ed81f65878a4a5391f48393121d39b58705f5c442099b",
+      "adaptation": "Exact original source segments; no formula change",
+      "author_attribution": "DISCO article analysis source",
+      "source_commit": null,
+      "commit_note": "Original local source not in an available Git checkout; SHA256 is authoritative"
+    },
+    {
+      "source_relative": "Simulation/Simu_Survival.R",
+      "original_sha256": "572675dfd9fdbe0ac19a148306892583a5e61777dea013dc036cd6eb0aa4d59a",
+      "lines": [
+        [
+          172,
+          251
+        ]
+      ],
+      "public_relative": "source/plot_c_original.R",
+      "public_sha256": "88d2b577404b0bbc6418963ec51dd3dd9ae980bda1434aff6a820cd02e8e6bd0",
+      "adaptation": "Exact original source segments; no formula change",
+      "author_attribution": "DISCO article analysis source",
+      "source_commit": null,
+      "commit_note": "Original local source not in an available Git checkout; SHA256 is authoritative"
+    },
+    {
+      "source_relative": "09_figures_tables/strict/extensions/evidence_reconstruction_sim/reconstruct_sim.R",
+      "original_sha256": "af3f9c64c33376769c20865cb01afbed7fa1ee460918cc67e283c4e512a2ed1a",
+      "lines": [
+        [
+          62,
+          75
+        ]
+      ],
+      "public_relative": "source/plot_ed5_transparent.R",
+      "public_sha256": "010fb079b0cbf7e45a7e4a741b2b51df1b3d0ff32adc18a9c4abd45a837cc424",
+      "adaptation": "Exact accepted transparent reconstruction function; not recovered historical final ED5 drawing",
+      "author_attribution": "DISCO article analysis source",
+      "source_commit": null,
+      "commit_note": "Original local source not in an available Git checkout; SHA256 is authoritative"
+    },
+    {
+      "source_relative": "03_multimodal_UKB/reproduce_ED7_KM_facet.R",
+      "original_sha256": "f24a6588dc51fcba4eb7e0c280fe32d074c37c9b0123c9bb04388c9fcf843948",
+      "lines": [
+        [
+          69,
+          94
+        ]
+      ],
+      "public_relative": "source/ED7a_visual_original.R",
+      "public_sha256": "42988866c32bd2edee3d8e0246aebb900289004aad8f41b75ab9fdcfc5bf58c3",
+      "adaptation": "Exact original source segments; no formula change",
+      "author_attribution": "DISCO article analysis source",
+      "source_commit": null,
+      "commit_note": "Original local source not in an available Git checkout; SHA256 is authoritative"
+    },
+    {
+      "source_relative": "03_multimodal_UKB/ED7a_new_endpoint_20261007/code/plot_ED7a_from_aggregate.R",
+      "original_sha256": "ffe7b6a4f01796be4fc5092fe790b81799f8e999a6501ab6472b49947e20691e",
+      "public_relative": "plot_ED7a.R",
+      "public_sha256": "3a771033d856f884c7166489db056019ad962886e974a9ce56a0a5e7084e8486",
+      "adaptation": "Function wrapper and shorter input paths only; actual accepted visual layout unchanged",
+      "source_commit": null
+    },
+    {
+      "source_relative": "03_multimodal_UKB/ED7a_new_endpoint_20261007/input/ED7a_crude_C_annotations_NEW_ENDPOINT.csv",
+      "original_sha256": "df7b6b856af6562ea147d1fbc6c6d92d092fb0c89bb60871b6ebc1abedcdb76f",
+      "public_relative": "input/ED7a_C_annotations.csv",
+      "public_sha256": "df7b6b856af6562ea147d1fbc6c6d92d092fb0c89bb60871b6ebc1abedcdb76f",
+      "adaptation": "Byte-identical anonymous aggregate or synthetic-model comparison table"
+    },
+    {
+      "source_relative": "01_method_definition/ED5_generator_rebuild_20261007/results/generated_models_wide_96.csv",
+      "original_sha256": "6887335545b4aa0d6092c098a7de1ba4ee8ed7a2d1409252f0195dbf5be893a1",
+      "public_relative": "input/reference_models_wide_96.csv",
+      "public_sha256": "6887335545b4aa0d6092c098a7de1ba4ee8ed7a2d1409252f0195dbf5be893a1",
+      "adaptation": "Byte-identical anonymous aggregate or synthetic-model comparison table"
+    },
+    {
+      "source_relative": "01_method_definition/ED5_generator_rebuild_20261007/results/generated_models_long_384.csv",
+      "original_sha256": "eb2a311286d0601e3a888345898c4f4136e6e6b76a1314a758ba41959750d7e6",
+      "public_relative": "input/reference_models_384.csv",
+      "public_sha256": "eb2a311286d0601e3a888345898c4f4136e6e6b76a1314a758ba41959750d7e6",
+      "adaptation": "Byte-identical anonymous aggregate or synthetic-model comparison table"
+    }
+  ],
+  "new_files": [
+    {
+      "path": "LICENSE",
+      "sha256": "66f9396b8d48cb3e51f06e09bc3ac383a59e2f22fd26aabb0b1c6ab04cab1e48",
+      "bytes": 1067
+    },
+    {
+      "path": "README.txt",
+      "sha256": "794374793fa1ead39cd816894d15432f317eaf7e6683a79e67e4e5e5baa55da1",
+      "bytes": 4682
+    },
+    {
+      "path": "bootstrap.R",
+      "sha256": "ea227ec5f5e1aeb79372cd153ab12ea940727c16f13839a7516d9da55c6ecf40",
+      "bytes": 1606
+    },
+    {
+      "path": "dependency_lock.json",
+      "sha256": "6be94c6e7b96db0a68248e6383983470cbc995641f5bcda5f2bab8da4f691021",
+      "bytes": 1475
+    },
+    {
+      "path": "fit_simulation.R",
+      "sha256": "bf8888d0c7b1f0568653a155271d53a798f488691cbd94582bcd17b9fc7c8589",
+      "bytes": 3140
+    },
+    {
+      "path": "generate_simulation.R",
+      "sha256": "144c1a00a64f69e37630c8478f12ad0667291c505b9af85ab5009fac9c861633",
+      "bytes": 3070
+    },
+    {
+      "path": "input/ED7a_C_annotations.csv",
+      "sha256": "df7b6b856af6562ea147d1fbc6c6d92d092fb0c89bb60871b6ebc1abedcdb76f",
+      "bytes": 1925
+    },
+    {
+      "path": "input/reference_models_384.csv",
+      "sha256": "eb2a311286d0601e3a888345898c4f4136e6e6b76a1314a758ba41959750d7e6",
+      "bytes": 77013
+    },
+    {
+      "path": "input/reference_models_wide_96.csv",
+      "sha256": "6887335545b4aa0d6092c098a7de1ba4ee8ed7a2d1409252f0195dbf5be893a1",
+      "bytes": 21987
+    },
+    {
+      "path": "install_dependencies.R",
+      "sha256": "a6801d0482353d057520c5e335e194c66c1141197f6ec6b101ab5abfc476371f",
+      "bytes": 2905
+    },
+    {
+      "path": "package_versions.csv",
+      "sha256": "e0415f2d5a315dc065fe5b957241514469941587ab444d223d1d4b9a24200e7b",
+      "bytes": 273
+    },
+    {
+      "path": "plot_ED7a.R",
+      "sha256": "3a771033d856f884c7166489db056019ad962886e974a9ce56a0a5e7084e8486",
+      "bytes": 2400
+    },
+    {
+      "path": "plot_simulation.R",
+      "sha256": "b72e70e70fe8e1419e7a7211864c281ccead4de9680bceb1404b866795bef283",
+      "bytes": 2820
+    },
+    {
+      "path": "run.R",
+      "sha256": "2e48516aee9278d8c3e0aaf818cbc00d1547ba0f69584da3b95cbe688aebeac0",
+      "bytes": 2776
+    },
+    {
+      "path": "source/Cox_block_original.R",
+      "sha256": "1a86914ab409b74eed3ed81f65878a4a5391f48393121d39b58705f5c442099b",
+      "bytes": 880
+    },
+    {
+      "path": "source/ED7a_visual_original.R",
+      "sha256": "42988866c32bd2edee3d8e0246aebb900289004aad8f41b75ab9fdcfc5bf58c3",
+      "bytes": 1495
+    },
+    {
+      "path": "source/distance_original.R",
+      "sha256": "e64c53eef544abb7983c51b0c32a5037e48109fe6f1cc7e2925a0c8f8a22a560",
+      "bytes": 2853
+    },
+    {
+      "path": "source/generator_original.R",
+      "sha256": "286e2d934ff7beb23d51be46cb4d59444e268293def0f7ab9e3787a0b272800b",
+      "bytes": 3719
+    },
+    {
+      "path": "source/plot_c_original.R",
+      "sha256": "88d2b577404b0bbc6418963ec51dd3dd9ae980bda1434aff6a820cd02e8e6bd0",
+      "bytes": 2469
+    },
+    {
+      "path": "source/plot_ed5_transparent.R",
+      "sha256": "010fb079b0cbf7e45a7e4a741b2b51df1b3d0ff32adc18a9c4abd45a837cc424",
+      "bytes": 770
+    },
+    {
+      "path": "source/score_block_original.R",
+      "sha256": "4caf6c53a80499439ff6c8332c866fab760c4603872d6594a45e8baa159c02a3",
+      "bytes": 338
+    }
+  ],
+  "execution_scopes": {
+    "ed7a": "Aggregate replay32curves16C",
+    "smoke": "New4datasets16fits, not96",
+    "reference_figures": "Published96model-summary drawing replay, not new384fits",
+    "full": "New96datasets384fits entrypoint; full local original-chain acceptance already exists"
+  },
+  "required_authorized_inputs": [
+    {
+      "path": "input/ED7a_event_time_curves.csv",
+      "distributed": false,
+      "reason": "Exact clinical event-time table remains local; supply an authorized input to redraw ED7a."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+PH解释技术闭合，2026-10-08
+
+入口：results/PH_interpretation_checks.json、results/PH_INTERPRETATION.txt。
+复用已验收18 joint、18 post-hoc 60mo split与252 organ PH结果；本轮没有重复拟合或按P选模型、无删人、无换primary。
+实际独立核验：144 HR、180 PH、72 period估计；global两basisχ²相同、scoreβ/SE尺度变换一致；36DISCO period HR及下限全>1、14/18interaction nominal与BH均显著。
+主要HR是working-model随访关联摘要，不假称恒定/因果，不是periodHR算术平均。held-outC-index和PH解释分开。
+Alzheimer18NA的race separation原因、riskset和诊断已保留，不把NA当pass、不再打开已经修好的技术事项。
+input为匿名汇总CSV/源producer/QA，code/check_frozen_PH.py只读校核，results证据，logs运行版本。源SHA记录在结果JSON，不改CURRENT/primary figure/表。
+投稿SI所需最小原句→新句在01_method_definition/theory_resolution_20261008/results/document_patch_specs.json，由root统一真修订。

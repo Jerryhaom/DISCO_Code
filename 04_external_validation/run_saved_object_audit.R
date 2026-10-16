@@ -14,6 +14,7 @@ disco_init_module("04_external_validation")
 # Audit external-validation saved objects without modifying legacy files.
 
 options(stringsAsFactors = FALSE)
+suppressPackageStartupMessages(library(survival))
 root <- disco_project_root()
 out_dir <- "outputs"
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
@@ -28,13 +29,14 @@ audit <- list(); cox_rows <- list()
 for (label in names(specs)) {
   s <- specs[[label]]
   d <- readRDS(s$file)
-  id_col <- if (is.null(s$id)) names(d)[1] else s$id
-  id <- d[[id_col]]
+  id_col <- if (is.null(s$id)) NA_character_ else s$id
+  id <- if (is.na(id_col)) NULL else d[[id_col]]
   age_col <- s$age
   audit[[label]] <- data.frame(
     cohort = label, file = basename(s$file), n = nrow(d), expected_n = s$expected_n,
     n_matches_expected = is.na(s$expected_n) || nrow(d) == s$expected_n,
-    id_column = id_col, unique_ids = length(unique(id)), duplicated_ids = anyDuplicated(id) > 0,
+    id_column = id_col, unique_ids = if(is.null(id)) NA_integer_ else length(unique(id)),
+    duplicated_ids = if(is.null(id)) NA else anyDuplicated(id) > 0,
     age_column = age_col, na_age = sum(is.na(d[[age_col]])),
     na_mc = sum(is.na(d$mc)), na_hd = sum(is.na(d$hd)),
     has_time = all(c("time", "status") %in% names(d)),
@@ -51,7 +53,7 @@ for (label in names(specs)) {
         fit <- survival::coxph(as.formula(formula_text), data = d)
         ci <- summary(fit)$concordance
         cox_rows[[length(cox_rows) + 1L]] <- data.frame(
-          cohort = label, formula = formula_text, n = nobs(fit), events = fit$nevent,
+          cohort = label, formula = formula_text, n = fit$n, events = fit$nevent,
           c_index = unname(ci[1]), se = unname(ci[2])
         )
       }
@@ -67,6 +69,7 @@ hrs_doc <- data.frame(
   status = "documented_in_PNAS_submission"
 )
 
+disco_validate_cox_rows(do.call(rbind, cox_rows))
 write.csv(do.call(rbind, audit), file.path(out_dir, "saved_object_audit.csv"), row.names = FALSE)
 write.csv(do.call(rbind, cox_rows), file.path(out_dir, "cox_recalculation.csv"), row.names = FALSE)
 write.csv(hrs_doc, file.path(out_dir, "hrs_documented_audit.csv"), row.names = FALSE)

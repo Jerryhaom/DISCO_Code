@@ -14,6 +14,7 @@ disco_init_module("06_frailty_function")
 # Audit CHARLS DISCO/frailty objects without modifying legacy files.
 
 options(stringsAsFactors = FALSE)
+suppressPackageStartupMessages(library(survival))
 root <- disco_project_root()
 r5 <- file.path(root, "Result5")
 out_dir <- "outputs"
@@ -41,7 +42,7 @@ for (f in files) {
           fit <- survival::coxph(as.formula(formula_text), data = x)
           ci <- summary(fit)$concordance
           cox_rows[[length(cox_rows) + 1L]] <- data.frame(
-            object = f, formula = formula_text, n = nobs(fit), events = fit$nevent,
+            object = f, formula = formula_text, n = fit$n, events = fit$nevent,
             c_index = unname(ci[1]), se = unname(ci[2])
           )
         }
@@ -57,6 +58,7 @@ fi_audit <- do.call(rbind, lapply(fi_files, function(p) {
 }))
 
 write.csv(do.call(rbind, audit), file.path(out_dir, "saved_object_audit.csv"), row.names = FALSE)
+disco_validate_cox_rows(do.call(rbind, cox_rows))
 write.csv(if (length(cox_rows)) do.call(rbind, cox_rows) else data.frame(), file.path(out_dir, "cox_recalculation.csv"), row.names = FALSE)
 write.csv(fi_audit, file.path(out_dir, "frailty_object_audit.csv"), row.names = FALSE)
 writeLines(capture.output(sessionInfo()), file.path(out_dir, "sessionInfo.txt"))

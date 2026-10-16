@@ -1,0 +1,51 @@
+ED7 competing-death sensitivity analysis, authorized 2026-10-06
+
+Purpose: retain ED7 1-KM artwork and add Aalen-Johansen disease cumulative
+incidence curves with death before diagnosis as a competing event.
+This is an estimation-method sensitivity analysis, not certification of the
+unrecovered original UKB diagnosis-date generation chain (audit C03/C04).
+
+Primary population: the exact combined clinical/protein score object used by
+reproduce_ED7_KM_facet.R, UKB.ClinicalProt.DISCO.rds. Preserve DISCO and DM
+quartile definitions in the full score population; plot Q1 and Q4 separately.
+DM is monotone under log transformation, so its quartiles are unchanged.
+Eight endpoints and labels follow the actual ED7 plotting code.
+
+Link disease and mortality data by verified unique participant identifiers.
+Verify saved score follow-up/status against UKB.Mortality.csv, and preserve
+all original input files. Report all mismatches or missing links.
+The saved ages and disease times lie on monthly ticks. Mortality CSV numeric
+rounding differs from exact month fractions by at most 4e-8 month. After
+verifying this grid, use integer-month working times for both estimators and
+the independent check, and convert axes back to years. No source values change.
+Use a common observation end: minimum of the saved disease observation/event
+time and the saved mortality observation/death time. No extension beyond the
+earlier observed follow-up is permitted. Negative disease times are excluded
+using the historical prevalent-disease proxy. Zero intervals are excluded
+because they cannot form a valid positive follow-up interval; their true
+baseline/incident classification remains unresolved without source dates.
+
+Monthly disease and mortality times cannot establish within-month ordering.
+Primary sensitivity: exclude target-disease events that occur in the same
+recorded month as death, and exclude disease events recorded later than death.
+Both exclusions are analysis-only and explicitly tabulated, not input edits.
+Additional bounds retain same-month events with target-first versus death-first
+ordering, while the after-death conflicts remain excluded pending source dates.
+This protocol is fixed before the CIF and KM curves/results are inspected.
+
+Fit Aalen-Johansen state probabilities using survival::survfit with the first
+event coded as censor/disease/death. Primary time scale is years from baseline;
+a companion uses attained age with delayed entry to match the ED7 x-axis.
+Re-estimate 1-KM on the identical first-event risk set, censoring competing
+deaths, to isolate the estimator difference. Do not compare unlike populations.
+Show confidence intervals for CIF from the survfit multistate implementation;
+report method, N, target events, competing deaths and at-risk counts separately.
+Do not imply age/sex adjustment: these are unadjusted quartile curves.
+
+Independently verify the AJ and KM point estimates by direct event-time
+product updates, check state sums, monotonicity, and CIF <= 1-KM on the same
+risk set. Re-run in two fresh R sessions and compare aggregate numeric output.
+No individual IDs, fitted data objects or membership vectors are public output.
+Final graphics reuse ED7 colors/line encodings and scientific ggplot theme,
+with no small numeric annotations added. Supplementary figure number will be
+assigned in the final manuscript sequence, not guessed from a filename.

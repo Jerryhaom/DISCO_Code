@@ -31,3 +31,17 @@ disco_init_module <- function(module) {
   setwd(path)
   invisible(path)
 }
+
+# Cox nobs() counts events, not analyzed participants. Model tables use fit$n.
+# Empty or non-finite fitted results must not be reported as a successful audit.
+disco_validate_cox_rows <- function(rows) {
+  required <- c("n", "events", "c_index", "se")
+  if (!is.data.frame(rows) || !nrow(rows) || !all(required %in% names(rows)))
+    stop("No complete Cox result rows; audit cannot pass", call. = FALSE)
+  vals <- as.matrix(rows[, required, drop = FALSE])
+  if (!is.numeric(vals) || any(!is.finite(vals)) || any(rows$n <= 0) ||
+      any(rows$events <= 0) || any(rows$events > rows$n) ||
+      any(rows$c_index < 0 | rows$c_index > 1) || any(rows$se < 0))
+    stop("Invalid Cox result metadata or concordance; audit cannot pass", call. = FALSE)
+  invisible(TRUE)
+}

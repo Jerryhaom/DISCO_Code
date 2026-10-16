@@ -1,5 +1,9 @@
 # DISCO_Code — article analysis and figure code
 
+For the latest disease log(DM) and matched-protein DISCO/clock analyses, start with [submission_20261013/README.md](submission_20261013/README.md). The [October 8 analysis integration](analysis_20261008/README.txt) provides additional sensitivity analyses and aggregate replay. Earlier modules in [current/README.md](current/README.md) and dated directories retain their original scope; see [RELEASE_ENTRIES.md](RELEASE_ENTRIES.md) before selecting an entry.
+
+The 6 October approved Table 1 standardization/imputation, UKB IPAQ, organ cause-specific risk-set correction, CIF sensitivity, NMR correction and new 70:30 organ-clock entries are in [approved/README.txt](approved/README.txt). These dated branches retain explicit provisional endpoint status. They do not make every historical entry a final manuscript pipeline.
+
 Code accompanying **[Human aging reflects increases in entropy across organ networks](https://www.medrxiv.org/content/10.1101/2025.05.06.25327108v2)**, Hao M et al., medRxiv, version 2 (26 April 2026). DOI: [10.1101/2025.05.06.25327108](https://doi.org/10.1101/2025.05.06.25327108). This is a preprint. Earlier scripts may retain terminology from the version 1 title, *Distance of covariance (DISCO), a novel measure of network homeostatic dysregulation, reveals organ system interconnections underlying mortality and disease risk*.
 
 **[R package: DISCO4HD](https://github.com/Jerryhaom/DISCO4HD)** · **[Online calculator](https://jerryhaom.github.io/DISCO-Calculator/)** · **[10-biomarker example](10_biomarker_calculator/README.md)**
@@ -15,7 +19,7 @@ The analyses examine associations with mortality, frailty and incident chronic d
 | Scientific question | Main code modules |
 |---|---|
 | Definition, simulation and sensitivity of DISCO | `01_method_definition` |
-| Clinical mortality prediction and aging-measure comparisons | `02_primary_clinical`, `04_external_validation`, `08_revision_analyses` |
+| Clinical mortality prediction and aging-measure comparisons | `02_primary_clinical`, `04_external_validation`, `08_sensitivity_analyses` |
 | Proteomic and other modality analyses; incident disease | `03_multimodal_UKB`, `07_RuLAS_omics` |
 | Organ/system specificity and network relationships | `05_organ_network` |
 | Frailty and functional outcomes | `06_frailty_function` |
@@ -26,11 +30,11 @@ This repository contains analysis, simulation and figure replay scripts. **Restr
 
 ## Start here
 
-Install **DISCO4HD >= 0.3.0** from its separate repository (an R source compiler is required for Rcpp), then clone this analysis repository:
+Install the validated **DISCO4HD 0.3.2** commit below (an R source compiler is required for Rcpp), or install the bundled DISCO4HD source with `R CMD INSTALL`. Then clone this analysis repository:
 
 ```r
 install.packages("remotes")
-remotes::install_github("Jerryhaom/DISCO4HD")
+remotes::install_github("Jerryhaom/DISCO4HD@a83dec9b5c9d7db8c111a8e39c0a26688e7b3184")
 ```
 
 ```sh
@@ -73,11 +77,11 @@ Optional overrides: `DISCO_PRS_FILE`, `DISCO_RULAS_WAVE2_FILE`, `DISCO_NHANES4_F
 | 05_organ_network | Organ outcomes, networks, expanded covariates | [guide](05_organ_network/README.md) |
 | 06_frailty_function | Saved frailty / function objects and figures | [guide](06_frailty_function/README.md) |
 | 07_RuLAS_omics | Omics reanalysis and saved-object figures | [guide](07_RuLAS_omics/README.md) |
-| 08_revision_analyses | R01–R06 revision analyses | [guide](08_revision_analyses/README.md) |
+| 08_sensitivity_analyses | R01–R06 revision analyses | [guide](08_sensitivity_analyses/README.md) |
 | 09_figures_tables | Bundled source-block replay and export utilities | [guide](09_figures_tables/README.md) |
 | 10_biomarker_calculator | Frozen 10/8/9-marker reference examples | [guide](10_biomarker_calculator/README.md) |
 
-[script_manifest.csv](script_manifest.csv) assigns a role and release status to each entry. Only explicitly marked preferred scripts are the recommended entry points. Historical alternatives remain available for provenance and are not all independent final pipelines. R04 meta-analysis uses embedded summary estimates; it does not recompute cohort fits.
+[script_manifest.csv](script_manifest.csv) assigns a role and release status to each entry. The historical preferred labels identify an older source release; they do not approve a script for the current manuscript. Use the dated approved modules for the corrections listed there. Historical alternatives remain available for provenance and are not all independent final pipelines. R04 meta-analysis now reads the single approved Table 1 CSV and checks its model, transform, SD population and endpoint snapshot contract; the approved Table 1 entry separately recomputes the cohort fits.
 
 ## Environment
 
@@ -94,7 +98,7 @@ Do not substitute a local BioAge stub for historical calculations. Existing save
 
 ## Figure replay
 
-`09_figures_tables/replay_blocks/` contains the actual expressions previously read from external R scripts. Calls now read whole bundled blocks rather than fixed line numbers in missing legacy files. Only path expressions were adapted. `provenance.csv` records original file/line ranges and hashes before/after adaptation. Restricted data and some previously computed outputs are still necessary; see the module guide. Statistical execution and visual matching remain separate checks.
+`09_figures_tables/replay_blocks/` contains the actual expressions previously read from external R scripts. Calls now read whole bundled blocks rather than fixed line numbers in missing legacy files. Most adaptations are path substitutions. The NHANES comparison block also corrects the displayed label from DunedinPACE to DunedinPoAm; its numeric inputs and geometry are unchanged. `provenance.csv` records original file/line ranges and current portable hashes; [RELEASE_CHANGES.md](RELEASE_CHANGES.md) documents further corrections. Restricted data and some previously computed outputs are still necessary; see the module guide. Statistical execution and visual matching remain separate checks.
 
 ## Release scope
 
@@ -104,3 +108,7 @@ See [MIGRATION.md](MIGRATION.md) for scientific changes in DISCO4HD, preserved h
 ## Citation and related software
 
 Please cite the manuscript above when using the method and record the code commit, DISCO4HD version, biomarker panel, transformations and selected reference in your analysis. For historical reproduction, consult [MIGRATION.md](MIGRATION.md) before replacing saved scores with freshly calculated values. The calculator's concise clinical panel should not be described as a statistically established optimal biomarker set.
+
+## Submission update, 13 October 2026
+
+The latest Fig. 3c log-DM and matched-protein mutual-adjustment analyses are in [submission_20261013](submission_20261013/README.md). Their entry point, input requirements and source hashes are documented there.

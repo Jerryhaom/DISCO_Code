@@ -1,0 +1,25 @@
+# S11b: independently reproducible weighted-degree sensitivity
+
+This is a new calculation branch, not an assertion that the unavailable historical `Deg.Weight.pdf` producer or historical random state has been recovered. The original `Plot_Organ_Net.R` explicitly defines network degree from the age- and sex-adjusted correlations of organ DISCOs calculated using nonoverlapping, organ-specific selected proteins. The submitted S11 caption identifies this as the power applied to the network correlations. The plot power is therefore **rᵢⱼ^power**, not a power applied to the within-DISCO biomarker-pair weights.
+
+## Inputs, calculation and outputs
+
+`01_recompute_raw_and_pairs.R` begins with the raw UKB proteomic RData, maps Olink coding to gene names, selects the 1,553 atlas genes, retains rows with fewer than 50% missing measurements, and median-imputes each gene. Every value of the resulting 51,922-person matrix agrees with the saved historical organ input. Reference participants are age≤40 (N=615). It calculates the exact unbiased covariance update and Pearson normalization for every score; 418 direct `cor(rbind(reference, person))` probes cover 209 distinct gene sets. For each of the 153 organ pairs, the shared selected proteins are removed from both sets, and both scores are residualized against the same age+sex design. Partial r and its N−4 degrees-of-freedom P value are retained. The original saved LASSO selections are fixed inputs; this module does not retrain their original selection models.
+
+`02_current_endpoint_targets.R` runs in the already authorized UKB server analysis area, using existing server score and endpoint files. It fits 18 all-cause mortality and 18×8 incident-disease score-only Cox models with the current blood-date/2022-12-31/death-first endpoint definitions. Its C values are apparent crude Harrell C, not age-adjusted or held-out prediction estimates. There are no model warnings. Only aggregate coefficients, sample/event counts, C/SE and acceptance metadata are copied back; no new individual health score is uploaded.
+
+`04_server_core_fingerprint.R` and `05_verify_id_score_bridge.R` verify every one of the 51,922×18 eid/score tuples linking the raw local recalculation, original `UKB.odis.rds`, and existing server `input_organ.csv`. The original export used `write.table`, so the local verifier reproduces that CSV serialization in memory. This causes a measured maximum round-trip change of 5.33×10⁻¹⁵. All actual export tuples agree at 10 decimal places with the server aggregate fingerprint. The maximum raw-score difference from the original saved score is 1.76×10⁻¹³. Bitwise equality is not claimed.
+
+`03_power_statistics_and_plot.R` applies eight powers (0.5 through4 in0.5 steps), calculates weighted degree with a zero diagonal, and correlates that degree across18 organs with (i) the same-sample score/age correlation, (ii) mortality C and (iii) the mean of eight disease C values. Its 24 power/outcome keys are unique. All correlations also pass an independent centered-product calculation. The 96-row, four-branch table distinguishes historical versus recomputed pair matrices and historical versus current endpoint targets; no historical r/P values are mixed into the new final24 points.
+
+Final figure: `figures/S11b_FULL_PAIR_CURRENT_TARGETS_NEW_CALCULATION.pdf`.
+
+Final plot table: `tables/S11b_current_24_keyed_points.csv`; targets: `tables/S11b_current_targets_18_organs.csv`; pair definitions/statistics: `tables/nonoverlap_pairs_153.csv`.
+
+The small change from the historical pair matrix (maximum1.43×10⁻⁵) comes from using the exact finite-reference update rather than the historical approximation. The historical aggregate reconstruction remains separately verified to4.44×10⁻¹⁶. The three final correlations decrease gradually as the power increases; all24 nominal P values are below.05. This is an across-organ descriptive association and sensitivity calculation, not evidence of individual incremental prediction, a causal effect, or external validation.
+
+## Re-run order
+
+With the existing DISCO raw files and R dependencies, run local `Rscript code/01_recompute_raw_and_pairs.R <absolute_module_path>`. In the existing server analysis directory, run `02_current_endpoint_targets.R` and `04_server_core_fingerprint.R`, and copy back only their aggregate CSV/JSON outputs. Then run local `05_verify_id_score_bridge.R` and `03_power_statistics_and_plot.R`. Render the PDF with Poppler and visually inspect it before running `06_finalize_acceptance.R`. `DISCO_INPUT_ROOT` can override the local DISCO input root.
+
+Private local score/reference files are0600 under a0700 directory. The module does not modify original raw files, saved historical objects, CURRENT, the checklist or shared manuscript assemblies. No release or upload approval is implied by this candidate.

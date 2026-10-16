@@ -1,0 +1,13 @@
+# ED9c age+sex 部分相关新计算
+
+`code/run_ed9c.R` 从原始临床矩阵、蛋白 eid 顺序、死亡文件中的年龄/性别、已保存器官 DISCO 分数及字段字典直接重算；不是重放旧 `r.rds/p.rds` 或此前的 prepared intermediate。25个临床指标×18器官，共450格。eid桥核查与输入SHA记录在`results/numerical_acceptance.json`。
+
+每个临床指标取其与年龄、性别及器官评分的共同完整个体。临床指标和器官 DISCO 在完全相同样本中对age+sex作线性残差，再计算Pearson r；检验df=N-4。无插补、log或winsorization。热图颜色显示|r|，符号方向保留在450行统计表；星号采用同一新计算的名义P（**<.01，*<.05），BH q另存。UKB30670的原始U变量明确标为Urea，不写BUN。
+
+450个r已用独立协方差逆矩阵公式、450个logP已用独立F分布检验交叉核验。实际原6×3.5英寸pheatmap分组/颜色/器官顺序/星号图层继承，只更新明确的新r/P和标签；未混历史r与新P。PDF已实际Poppler渲染并逐图查看。
+
+```sh
+DISCO_INPUT_ROOT=/path/to/DISCO Rscript --vanilla code/run_ed9c.R /absolute/path/to/this/module
+```
+
+`input/private/ED9c_prepared_input.rds` 是本次形成的个人级中间输入，目录0700、文件0600；不能进入GitHub。历史r/P的生成/调整定义仍未恢复，因此本模块是明确的新计算候选，不宣称历史数字精确复现。器官评分的全量原始训练不在本相关计算的验收范围内。原CURRENT、共享组图和旧对象未改变。

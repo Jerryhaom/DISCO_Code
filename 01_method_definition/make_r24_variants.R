@@ -17,7 +17,7 @@ disco_init_module("01_method_definition")
 suppressMessages({library(ggplot2); library(dplyr); library(tidyr); library(ggthemes)})
 
 root <- disco_project_root()
-csv  <- disco_results_path("08_revision_analyses/outputs/R03_correlation_robustness/R24_monotone_nonlinear.csv")
+csv  <- disco_results_path("08_sensitivity_analyses/outputs/R03_correlation_robustness/R24_monotone_nonlinear.csv")
 out  <- disco_results_path("01_method_definition/outputs/sensitivity")
 
 r24 <- read.csv(csv)

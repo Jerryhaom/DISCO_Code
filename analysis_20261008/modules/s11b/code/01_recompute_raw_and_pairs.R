@@ -1,0 +1,34 @@
+#!/usr/bin/env Rscript
+options(stringsAsFactors=FALSE,warn=1)
+suppressPackageStartupMessages({library(Rcpp);library(jsonlite);library(digest)})
+args<-commandArgs(TRUE);m<-if(length(args))normalizePath(args[1])else normalizePath('05_organ_network/S11b_full_pair_recompute_20261008');root<-Sys.getenv('DISCO_INPUT_ROOT');base<-file.path(root,'Result3/Organ');tic<-proc.time()[3]
+paths<-c(raw=file.path(root,'UKB_Data/20240321_prot_instance0.RData'),coding=file.path(root,'Result2/Proteins/coding143.tsv'),classification=file.path(base,'UKB.Prot.class.rds'),selected=file.path(base,'Lasso.select.prot.rds'),saved_gene_input=file.path(base,'UKB.prot.ogran.rds'),saved_order=file.path(base,'UKB.tissue.mc.rds'),metadata=file.path(root,'UKB_Data/UKB.Mortality.csv'),historical_pair_matrix=file.path(base,'Tissue.pcorr.noverlap2.rds'))
+sha<-function(p)digest(file=p,algo='sha256');hashes<-vapply(paths,sha,'');cla<-readRDS(paths['classification']);sel<-readRDS(paths['selected']);oldscore<-readRDS(paths['saved_order']);tis<-names(table(cla$specific.tissue));stopifnot(identical(tis,colnames(oldscore)),length(sel)==length(tis))
+org<-names(table(cla$specific.tissue))[table(cla$specific.tissue)>40];org<-org[!org%in%c('placenta','ovary','testis')];org<-tis[tis%in%org];stopifnot(length(org)==18L)
+e<-new.env();load(paths['raw'],envir=e);prot<-as.data.frame(e$prot.dat);rm(e);pn<-read.delim(paths['coding']);pnl<-unlist(strsplit(pn$meaning,';'));pn$prot<-pnl[seq(1,length(pnl),2)];newnames<-pn$prot[match(as.numeric(colnames(prot)[3:ncol(prot)]),pn$coding)];stopifnot(!anyNA(newnames));colnames(prot)[3:ncol(prot)]<-newnames
+genes<-unique(cla$Gene);stopifnot(all(genes%in%names(prot)));geneinput<-as.matrix(prot[,c('eid',genes),drop=FALSE]);rm(prot);gc();geneinput<-geneinput[rowSums(is.na(geneinput))<.5*ncol(geneinput),,drop=FALSE];geneinput<-apply(geneinput,2,function(x){x[is.na(x)]<-median(x,na.rm=TRUE);x});saved<-as.matrix(readRDS(paths['saved_gene_input']));stopifnot(identical(dim(geneinput),dim(saved)),identical(colnames(geneinput),colnames(saved)));raw_difference<-max(abs(geneinput-saved));stopifnot(raw_difference<1e-10);rm(saved);gc();cat('Raw gene QC/imputation all-cell match:',raw_difference,'\n');flush.console()
+ids<-as.character(geneinput[,'eid']);meta<-read.csv(paths['metadata']);ii<-match(ids,as.character(meta$id));stopifnot(!anyNA(ii),!anyDuplicated(ids));age<-meta$Age[ii];sex<-meta$Gender[ii];stopifnot(all(is.finite(age)),!anyNA(sex));ref<-which(age<=40);X<-geneinput[,-1,drop=FALSE];rm(geneinput,meta)
+sourceCpp(file.path(Sys.getenv('DISCO_RELEASE_ROOT'),'modules/ed4/code/score_kernel.cpp'),cacheDir=file.path(m,'compile_cache'))
+cache<-new.env();score_checks<-list();score_count<-0L
+score_genes<-function(g) {
+  g<-sort(unique(g));stopifnot(length(g)>=2,all(g%in%colnames(X)));key<-paste(g,collapse='|');if(exists(key,envir=cache,inherits=FALSE))return(get(key,envir=cache))
+  xx<-X[,g,drop=FALSE];xr<-xx[ref,,drop=FALSE];cc<-apply(xx,2,function(z)cor(z,age));w<-abs(cc%o%cc);diag(w)<-0;w<-w/sum(w);rr<-cor(xr);sc<-score_two_weights(xx,colMeans(xr),cov(xr),rr,w,w,nrow(xr))[,1];stopifnot(all(is.finite(sc)))
+  probe<-vapply(1:2,function(i)log(nrow(xr)^2*sum((cor(rbind(xr,xx[i,]))-rr)^2*w)),numeric(1));err<-max(abs(probe-sc[1:2]));stopifnot(err<1e-8);score_count<<-score_count+1L;score_checks[[score_count]]<<-data.frame(score_set=score_count,n_genes=length(g),literal_max_error=err,score_sha256=digest(sc,algo='sha256'));assign(key,sc,envir=cache);sc
+}
+# Outcomes are evaluated for the original organ definition (all atlas genes),
+# not the mutually non-overlapping LASSO sets used for each network edge.
+full_scores<-sapply(org,function(t)score_genes(cla$Gene[cla$specific.tissue==t]));colnames(full_scores)<-org
+matrix_new<-diag(1,18);dimnames(matrix_new)<-list(org,org);pairs<-list();selection<-list();k<-0L;design<-model.matrix(~age+sex)
+for(i in 2:18)for(j in 1:(i-1)) {
+  a<-sel[[match(org[i],tis)]];b<-sel[[match(org[j],tis)]];shared<-intersect(a,b);a<-setdiff(a,shared);b<-setdiff(b,shared);stopifnot(!length(intersect(a,b)))
+  sa<-score_genes(a);sb<-score_genes(b);res<-qr.resid(qr(design),cbind(sa,sb));rr<-cor(res[,1],res[,2]);df<-length(age)-4L;p<-2*pt(-abs(rr)*sqrt(df/(1-rr^2)),df);matrix_new[i,j]<-matrix_new[j,i]<-rr;k<-k+1L
+  pairs[[k]]<-data.frame(organ1=org[i],organ2=org[j],N=length(age),df=df,n_protein1=length(a),n_protein2=length(b),n_overlap_removed=length(shared),partial_r=rr,P_age_sex_Nminus4=p)
+  selection[[k]]<-list(organ1=org[i],organ2=org[j],genes1=a,genes2=b,removed=shared)
+  if(k%%10==0){cat('Pair',k,'/153 elapsed',proc.time()[3]-tic,'s\n');flush.console()}
+}
+stopifnot(k==153,all(matrix_new>=0),all(is.finite(matrix_new)),max(abs(matrix_new-t(matrix_new)))==0)
+oldmat<-readRDS(paths['historical_pair_matrix']);stopifnot(identical(dim(oldmat),c(18L,18L)));dimnames(oldmat)<-list(org,org)
+write.csv(matrix_new,file.path(m,'tables/organ_pair_partial_r_NEW.csv'));write.csv(do.call(rbind,pairs),file.path(m,'tables/nonoverlap_pairs_153.csv'),row.names=FALSE);write.csv(do.call(rbind,score_checks),file.path(m,'results/score_kernel_probes.csv'),row.names=FALSE);write.csv(data.frame(eid=ids,full_scores,check.names=FALSE),file.path(m,'input/private/organ_full_scores.csv'),row.names=FALSE);Sys.chmod(file.path(m,'input/private/organ_full_scores.csv'),'0600')
+saveRDS(list(matrix_new=matrix_new,matrix_historical=oldmat,organ_order=org,selections=selection),file.path(m,'input/pair_definitions_and_matrices.rds'));saveRDS(list(eid=ids,age=age,sex=sex,reference_ids=ids[ref]),file.path(m,'input/private/sample_and_reference.rds'));Sys.chmod(file.path(m,'input/private/sample_and_reference.rds'),'0600')
+qa<-list(status='PASS',scope='Raw atlas gene QC -> exact age-weighted correlation-perturbation scoring -> all153 pairwise nonoverlapping LASSO-selected gene scores -> same-sample age+sex residual partial r',raw_QC_value_match_max_error=raw_difference,N=length(ids),atlas_gene_n=ncol(X),organ_n=18,reference_n=length(ref),pair_n=153,unique_scoring_gene_sets=score_count,literal_score_probe_n=2*score_count,literal_score_max_error=max(vapply(score_checks,function(z)z$literal_max_error,0)),pair_r_range=range(matrix_new[lower.tri(matrix_new)]),historical_pair_r_max_abs_difference=max(abs(matrix_new-oldmat)),biomarker_pair_weights='abs(cor(age,gene_i)cor(age,gene_j)); diag0; sum1; never raised to plotting power',plot_power_definition='Only network partial correlation edge weights r_ij^power; diag0; degree=sum_j r_ij^power',original_protein_LASSO_selected_lists_retained=TRUE,selected_list_raw_training_NOT_rerun=TRUE,full_target_score_max_abs_difference_vs_saved=max(abs(full_scores-oldscore[,org,drop=FALSE])),input_sha256=as.list(hashes),input_unchanged=identical(hashes,vapply(paths,sha,'')),elapsed_sec=unname(proc.time()[3]-tic))
+write_json(qa,file.path(m,'results/pair_pipeline_acceptance.json'),pretty=TRUE,auto_unbox=TRUE,digits=17);print(qa)

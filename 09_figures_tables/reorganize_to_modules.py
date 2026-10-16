@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from project_paths import CODE_ROOT, DATA_ROOT, OUTPUT_ROOT
-"""Reorganize ChatGPT strict-reproduction results into logical module dirs."""
+"""Organize figure reproduction outputs by analysis module."""
 import os, shutil, json
 
 BASE = str(OUTPUT_ROOT / "09_figures_tables")

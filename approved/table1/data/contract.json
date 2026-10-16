@@ -1,0 +1,13 @@
+{
+  "version": "Table1_standardized_analysis_SD_20261006",
+  "approved_source_csv": "Table1_analysis_sample_SD.csv",
+  "approved_source_sha256": "183a8ea3870dc7193f329bcbf30d9b61eb6c29af999f403a41ec5911f51add3d",
+  "HR": "adjusted Cox HR per sample SD of DISCO or log(DM) in the final common within-cohort analysis sample",
+  "C_index": "crude apparent Harrell concordance on the same participants; not pooled by the HR meta-analysis",
+  "core_adjustment": "age+sex+smoking+alcohol+education, additionally race in NHANES and UKB",
+  "missing_data_decisions": "UKB missing race=White; CHARLS missing binary education=observed scored-cohort mode",
+  "endpoint_policy_version": "Table1_saved_cohort_endpoints_20261006_provisional",
+  "endpoint_status": "saved cohort definitions retained; raw survival definitions not all finally approved",
+  "allowed_meta_cohorts": ["NHANES", "UKB clinical", "CHARLS", "CLHLS", "RuLAS wave 2"],
+  "excluded": "overlapping UKB modality samples; logistic OR; old SD denominator; per-unit or differently adjusted HR"
+}

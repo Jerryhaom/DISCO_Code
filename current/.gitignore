@@ -1,0 +1,7 @@
+results/
+PRIVATE/
+**/PRIVATE/
+*INTERNAL*
+*.so
+*.o
+__pycache__/

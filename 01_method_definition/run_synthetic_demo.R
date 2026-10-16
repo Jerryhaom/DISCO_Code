@@ -12,8 +12,8 @@ disco_init_module("01_method_definition")
 
 
 # Small, fully synthetic end-to-end package example.
-if (!requireNamespace("DISCO4HD", quietly=TRUE) || packageVersion("DISCO4HD") < "0.2.0")
-  stop("Install DISCO4HD >= 0.2.0 first")
+if (!requireNamespace("DISCO4HD", quietly=TRUE) || packageVersion("DISCO4HD") < "0.3.1")
+  stop("Install DISCO4HD >= 0.3.1 first")
 set.seed(123)
 age <- seq(20,79)
 d <- data.frame(age, a=age/10+rnorm(60), b=age/30+rnorm(60), c=rnorm(60), e=age/15+rnorm(60))

@@ -1,0 +1,21 @@
+# ED4f / ED4h 完整抽样循环复现
+
+原始统计生产段已确认，而非按文件名匹配：`sim_r43_exp1_clean.R` 从蛋白输入生成 reference n=500、8个维度×5个蛋白子集的相关 RMS error / covariance condition number；`sim_r27_rep50_nested.R` 从临床58指标生成7种参考人数×50轮、两套DISCO权重及DM的C-index。绘图继承10/7已接受的实际 ggplot 段与尺寸。
+
+本模块重新执行全部统计循环，不读取旧对象作为新统计输入。旧对象仅作为最后的逐键比较依据。参考与评估名单保存在 `input/private/`；不要上传这些个人级名单到GitHub。
+
+```sh
+Rscript --vanilla code/run_ed4f.R /absolute/path/to/this/module
+Rscript --vanilla code/run_ed4h.R /absolute/path/to/this/module
+Rscript --vanilla code/plot_recomputed.R /absolute/path/to/this/module
+```
+
+输入根目录可通过 `DISCO_INPUT_ROOT` 指定，默认本机 DISCO。代码核实 sampleID/ID 逐行同一，不按行号盲目拼结局；输入SHA在 numerical acceptance 中。
+
+ED4h评分内核严格使用原R的增广样本协方差更新公式，并直接以 `cor(rbind(reference, query))` 独立检验。两种权重均排除对角并归一化。DM仍为原脚本的sqrt(Mahalanobis)、ridge=1e-8，不擅自改成logDM。
+
+统计边界：ED4f errorbar为5个特征子集间的SD，历史字段`cor_err_se`是误名；p≥500时样本协方差无满秩逆，不把缺失condition number当测量值。ED4h ribbons为50轮mean±SD，不是95%CI；C-index为同一评估人群拟合后的apparent Harrell C，age residual在评估人群中拟合，不是独立预测验证。
+
+完整ED4h严格恢复声明的历史端点估计对象，不混入10/7新日端点。历史487517人输入有11例time≤0，冻结的50000评估样本有2例time≤0；保留原脚本Cox行为，不把该敏感性图冒充2022-12-31新版端点的正式预测结果。此事项与抽样计算链的技术复现分开记录。原始输入、旧单图、CURRENT和共用组图均未改。
+
+所有新增结果、表、图、日志在本模块中；`results/ED4f_acceptance.json`和`ED4h_acceptance.json`记录完整运行规模、逐值旧新误差和原输入未改变证明。实际PDF需通过本模块`qa/`视觉验收后才接入选版。

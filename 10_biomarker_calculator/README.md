@@ -23,3 +23,15 @@ cal_disco10(x, reference="UKB", comparison="NHANES")
 Required units: CRP mg/L; GLU/CHOL/HDL/UREA mmol/L; CREA/UA µmol/L; WBC 10⁹/L; RBC 10¹²/L; ALB g/L. CRP is logged internally as ln(CRP + 1). **DM is not logged**. Read the [full package guide](https://github.com/Jerryhaom/DISCO4HD/blob/main/docs/10-biomarker-guide.md) for equations, reference ages, sample sizes and limitations.
 
 The small clinical panel is a practical calculator implementation. It does not replace the larger clinical/multiomics panels, historical scores or statistical models used throughout the article, and no formal biomarker optimality claim is made.
+# New synthetic NHANES-calibrated demonstration
+
+With the audited DISCO4HD >= 0.3.1 installed, run
+`Rscript run.R 10_biomarker_calculator/run_synthetic_nhanes.R`.
+This writes 400 fictional profiles, scores, generation provenance and a three-panel
+PNG. No participant records are read. The full Markdown guide and runnable
+visualization are in the companion package's `docs/synthetic-nhanes-example.md`.
+
+Important: the web calculator's comparison-cohort selector changes the z-score
+comparison distribution, **not** its fixed UKB scoring reference. In the R API,
+`reference="NHANES"` really changes the reference. To reproduce the web's NHANES
+comparison, use `reference="UKB", comparison="NHANES"`.

@@ -1,0 +1,13 @@
+{
+  "input_root": "/path/to/authorized/DISCO-input-tree",
+  "results_root": "/path/to/authorized/Results_final-input-snapshots",
+  "geometry_input": "/path/to/authorized/synthetic-geometry-pass-2",
+  "organ_input": "/path/to/authorized/input_organ.csv",
+  "mortality_endpoint": "/path/to/authorized/private_organ_endpoint.csv",
+  "disease_endpoint": "/path/to/authorized/private_endpoint_8.csv",
+  "organ_disease_patch": "/path/to/authorized/private_organ_52_endpoint_8_frozen.csv",
+  "theory_font": "/path/to/DejaVuSans.ttf",
+  "simulation_source": "/path/to/authorized/original/Simulation/Sim_Distances.R",
+  "r_library": "/path/to/optional/local/R-library",
+  "ed1_manifest": "/path/to/caller/ED1-output/results/r_exports.json"
+}

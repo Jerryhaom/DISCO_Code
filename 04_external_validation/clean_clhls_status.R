@@ -16,6 +16,7 @@ disco_init_module("04_external_validation")
 # from the binary mortality analysis; the legacy object is not modified.
 
 options(stringsAsFactors = FALSE)
+suppressPackageStartupMessages(library(survival))
 root <- disco_project_root()
 source_file <- file.path(root, "Result4/CLHLS.DISCO.rds")
 out_dir <- "outputs"
@@ -42,10 +43,11 @@ status_audit <- rbind(
 cox_rows <- lapply(c("Surv(time,status)~mc", "Surv(time,status)~mc+age+sex", "Surv(time,status)~hd", "Surv(time,status)~log(hd)+age+sex"), function(f) {
   fit <- survival::coxph(as.formula(f), data = clean)
   s <- summary(fit)
-  data.frame(formula = f, n = nobs(fit), events = fit$nevent,
+  data.frame(formula = f, n = fit$n, events = fit$nevent,
              c_index = s$concordance[1], se = s$concordance[2])
 })
 
+disco_validate_cox_rows(do.call(rbind, cox_rows))
 saveRDS(clean, file.path(out_dir, "CLHLS.DISCO.valid_status01.rds"))
 write.csv(status_audit, file.path(out_dir, "CLHLS_status_audit.csv"), row.names = FALSE)
 write.csv(do.call(rbind, cox_rows), file.path(out_dir, "CLHLS_valid_status_cox.csv"), row.names = FALSE)

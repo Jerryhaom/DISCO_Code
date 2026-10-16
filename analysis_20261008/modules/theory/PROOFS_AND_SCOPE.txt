@@ -1,0 +1,83 @@
+DISCO、Gaussian entropy 与 divergence：可检验的恒等式及适用范围
+2026-10-08
+
+结论
+现有 signed entropy benchmark 不必更换算法。其与固定参考下 DM 的排序关系可以严格证明；绝对 entropy difference 的排序不相同。DISCO 是 Pearson 相关结构扰动，不是一般 Gaussian entropy、KL 或 Rényi 的等价量。以下给出精确式、局部近似的余项和反例，取代笼统的“理论待审”。未把非 Gaussian 生物系统的真实 entropy 认定为已测量。
+
+1. 有限参考组的精确更新
+设参考 X 包含 n≥2 个 p 维观测，均值 μ、以 n−1 为分母的协方差 S，S 正定。加一个 x，令 v=x−μ，q=vᵀS⁻¹v=DM²。
+新增样本均值 μ₊=μ+v/(n+1)。原 scatter T=(n−1)S。将所有旧观测与 x 关于新均值中心化，交叉项消去，得到 T₊=T+n/(n+1)vvᵀ。
+因此 S₊=aS+bvvᵀ，其中 a=(n−1)/n，b=1/(n+1)，g=b/a=n/[(n−1)(n+1)]。
+由 det(A+uvᵀ)=det(A)(1+vᵀA⁻¹u)，
+    det(S₊)/det(S)=aᵖ(1+gq).
+这里不假设两个矩阵有相同普通特征向量。
+若采用以 n 为分母的 maximum-likelihood covariance，则 a=n/(n+1)，b=n/(n+1)²，g=1/(n+1)。分母约定不能混用。当前 R cov() 是前一种。
+
+2. Signed entropy 与 absolute entropy
+拟合正定 Gaussian 的微分 entropy 为 H=.5[p log(2πe)+log det S]。
+故精确 signed change 为
+    ΔH=.5[p log a+log(1+gq)].
+对固定 n,p,S，∂ΔH/∂q=g/[2(1+gq)]>0。它与 q（及 DM）单调一一对应，不是数值相等。
+非负差 dE=|ΔH| 则在 q₀=(a⁻ᵖ−1)/g 两侧改变单调方向。它不是 DM 的一般保序变换。两个不同 Gaussian 可以有相同协方差体积、dE=0；因此 dE 也不是分布上的严格 metric。
+实际 S3/S4 八个设置各有 555/1,000 个负 ΔH。当前已验收仿真保留 ΔH，不用 dE 替代。只读诊断中，DM 与 ΔH 的 Spearman ρ=1，与 |ΔH| 的 ρ=−0.0224063744；DISCO 与 |ΔH| 的 ρ 在 −0.03195 至 −0.08720。此处八个设置重复使用相关生成方案，不将它们合并为 8,000 名独立受试者。
+对非 Gaussian 数据，log-determinant 是拟合 Gaussian 的 covariance-volume proxy，而非未知真实分布 entropy 的精确变化。这个限制是数学事实，不需要作者在真/假间选择。
+
+3. 一般 Gaussian KL、均值项及广义特征值
+当前方向为 DKL(N₊ || Nref)，不是 symmetric KL：
+    DKL=.5[tr(S⁻¹S₊)−p+δμᵀS⁻¹δμ+log det S−log det S₊],
+其中 δμ=μ₊−μ。令 B=S⁻¹/²S₊S⁻¹/²，λᵢ 为 B 的特征值（等价为 S₊u=λSu 的广义特征值）。则
+    DKL=.5 Σᵢ(λᵢ−1−log λᵢ)+.5 δμᵀS⁻¹δμ.
+证明：tr(S⁻¹S₊)=tr B，det B=det S₊/det S；对对称正定 B 谱分解即可。实际数值检验使用 Cholesky congruence，未将两个不对齐矩阵的普通有序特征值直接相除。普通 λnew/λref 形式仅在共同特征基及正确配对时成立；一般形式无需这个限制。
+rank-one 更新使 λ=a（p−1 次）、a+bq（一次），所以未 regularize 的 unbiased augmentation 的完整精确 KL 为
+    DKL=.5[p(a−1−log a)+bq−log(1+gq)+q/(n+1)²].
+最后一项是均值变化，不能因原均值较近而自动忽略。在 q 有界、n 大的情形，均值项与 covariance-only 二阶项均为 n⁻² 量级。历史 KL 的双方1e−10 ridge 另见第7节；它不严格保留上述未 regularize 的 rank-one 形式，不能混写为历史ε算法的逐位恒等式。
+若两 Gaussian 的协方差完全相同，则 KL=.5||μP−μQ||²_{S⁻¹}，即两个均值间的 Mahalanobis 距离平方的一半，而不一定是新增个体 x 的 DM²/2。实际 augmentation 的均值差为 v/(n+1)。
+unbiased augmentation 的完整 KL 对 q 在 0≤q<2(n+1)/[n(n+2)] 先微小下降、之后上升。因此即使 Gaussian，也不能把此完整 KL 全局称为 DM 的单调等价量。n=20,p=3 的可重算例已验证这一点。
+
+4. KL 二阶近似及余项
+对任意正定 reference S 和 symmetric ΔS，设 A=S⁻¹/²ΔS S⁻¹/²，||A||₂≤η<1。保留任意均值差 δμ，
+    DKL(new||ref)=.5δμᵀS⁻¹δμ+.25||A||F²+R,
+    |R|≤Σᵢ|eᵢ|³/[6(1−η)]≤η||A||F²/[6(1−η)],
+其中 eᵢ 为 A 的特征值。
+证明：e−log(1+e)=e²/2+Σₖ≥₃(−1)ᵏeᵏ/k；|e|≤η，1/k≤1/3，求几何级数，再乘 .5。
+这给出明确“小”的相对尺度，而非 raw ΔS 元素看起来较小。δμ=0 才能删除均值项；约等于 0 时应保留该项或给其界。A 的 Frobenius 范数等于 tr[(S⁻¹ΔS)²] 的平方根（准确恒等），但不是一般 raw covariance/correlation 差的范数。普通 PCA 旋转不等于 whitening。
+
+5. Pearson 更新、n² 及 log 域
+若所有 reference marginal SD sᵢ>0，令 zᵢ=(xᵢ−μᵢ)/sᵢ，R 为 reference Pearson 矩阵。精确地
+    R₊,ᵢⱼ=(Rᵢⱼ+g zᵢzⱼ)/sqrt[(1+g zᵢ²)(1+g zⱼ²)].
+定义 Tᵢⱼ=zᵢzⱼ−.5Rᵢⱼ(zᵢ²+zⱼ²)。在固定 p、有界 z 及固定 reference 权重 wᵢⱼ≥0、wᵢᵢ=0、Σw=1 时，ΔR=gT+O(g²)，因此
+    Draw=Σwᵢⱼ(ΔRᵢⱼ)²=g²ΣwᵢⱼTᵢⱼ²+O(g³),
+    n²Draw → ΣwᵢⱼTᵢⱼ².
+一个显式元素余项界：若 max|zᵢ|≤M、0≤g≤g₀，则
+    |ΔRᵢⱼ−gTᵢⱼ|≤[(5/2)M⁴+(3/2)g₀M⁶]g².
+证明：对 f(t)=(r+tc)/sqrt[(1+ta)(1+tb)] 做二阶 Taylor，|r|≤1，|c|≤M²，a,b≤M²；|f''(t)|≤5M⁴+3g₀M⁶。又 |T|≤2M²，平方加权得到 |Draw−g²ΣwT²|≤4g³M²C+g⁴C²。
+当参考组随机变化时，还需 reference 均值、有限正 marginal variance、相关矩阵及权重收敛，且新增 x 的标准化偏差受控；n² 不保证有限样本完全相同，也不对随 n 外移的极端值作统一保证。
+当前 logarithmic score 为 log(n²Draw)，不是 log1p。只有 leading L=ΣwT²>0 时可以得有限 log 极限。Draw=0 时 score=−∞，不得偷偷加 floor。
+当前模拟原 .5Σ全矩阵(ΔR)² 与 normalized equal-pair Draw=Σ(ΔR)²/[p(p−1)] 相差 p(p−1)/2；不能漏掉尺度常数，年龄权重更不能当作这个等权和。
+
+6. Rényi：精确 Gaussian 式和真正成立的局部特例
+令 P=N(μP,ΣP)、Q=N(μQ,ΣQ)，ΣP,ΣQ 正定，α>0、α≠1。令 Cα=(1−α)ΣP+αΣQ。只有 Cα 正定时有限 Gaussian 积分闭式成立：
+    Dα(P||Q)=[α logdetΣQ+(1−α)logdetΣP−logdetCα]/[2(α−1)]
+              + α/2(μP−μQ)ᵀCα⁻¹(μP−μQ).
+证明：在积分 ∫p(x)^α q(x)^(1−α)dx 中令 M=αΣP⁻¹+(1−α)ΣQ⁻¹、h=αΣP⁻¹μP+(1−α)ΣQ⁻¹μQ，完成平方，再用 Gaussian 积分及 determinant identity。M 正定与 Cα 正定等价。0<α<1 自动满足；α>1 不自动满足，失败时积分发散，不是有限打分。
+有限严格局部对应：以固定的零均值、identity-reference correlation Gaussian 为模型，P=N(0,I)、Q=N(0,I+E)，E 对称、diag E=0、||E||₂<1/2，则
+    D₂(P||Q)=.5[2logdet(I+E)−logdet(I+2E)]
+              =.5||E||F²+O(Σ|eᵢ|³).
+余项绝对值可界为 [4/{3(1−2δ)}+1/{3(1−δ)}]Σ|eᵢ|³，δ=||E||₂<1/2，由两个 log 级数逐项控制。
+这只连接未取 log 的、等权 Pearson quadratic 与特定 Gaussian correlation models 的局部 divergence。它不证明实际 augmentation 同时变动 marginal variance 和 μ 时的 Gaussian KL/Rényi 等于 DISCO；不证明任意 reference R、任意年龄权重或当前 log score 的一般等价。若采用 normalized equal-pair Draw，leading factor 是 p(p−1)/2，而非 1。α=2 的方向这里明确为 reference||new，不能与当前 KL new||reference 混称。
+独立数值验证已将 covariance closed form 与直接完成平方积分式比较 40 次，最大误差 3.55e−15，并在缩小 E 时验证上述局部 leading ratio→1。
+
+7. 直接反例、奇异域和历史 regularization
+把 x 设为 reference 均值：v=0、q=0、S₊=aS、R₊=R。因此 Draw=0；但 ΔH=.5p log a<0、|ΔH|>0、完整 KL=.5p(a−1−log a)>0。这直接反驳三者一般等价。n=20,p=3 时数值为 ΔH=−0.07693994158、|ΔH|=0.07693994158、KL=0.00193994158。
+unbiased sample covariance rank≤min(p,n−1)，p≥n 时通常奇异。一般正定 Gaussian logdet/inverse 公式不能套用；加入一个观测最多增加一阶秩。Pearson DISCO 不需要逆协方差，若 n≥2、所有 marginal variance>0、权重归一化分母>0，则即使 correlation matrix 低秩仍可定义；p=1 的全 off-diagonal score 不成立。
+历史 DM 在 det<1e−10 时加 ridge1e−6；KL 给两个 covariance 加1e−10；entropy 无此 ridge。这些是各自历史算法，不能宣称统一正定域政策。本次不改已验收结果、不加 abs(det)、floor 或 log1p。实际八个 reference covariance 均正定，最小特征值0.14045、最大condition number33.32；边界诊断另外将奇异、indefinite、Rényi不正定及 log-zero 标为 undefined/divergent/−∞，不假造有限结果。
+
+8. 仿真和预测结论
+S3/S4 是相同样本作 reference 的几何描述；S5 对同一1,000人11种噪声重复扰动，不是11,000人的独立检验。已验收 signed branch 保持此口径，不以其证明临床 entropy、因果机制、独立外部验证或所有场景的预测优势。ED5/S6/S7 的96 dataset/384模型发生链已在独立模块完成；旧 AUTHOR_REVIEW 的未完成表述不能再当本轮 blocker。固定一个cell一个dataset/apparent performance的条件继续保留。
+本次数学技术可关闭：精确有限 n 式、一般 KL 谱式、mean term、二阶 remainder、Pearson update、n²条件、Rényi有条件特例、边界与反例。保留当前 signed benchmark 并撤回普遍等价即可，无须作者选择一个错误恒等式。若以后研究新的 primary absolute-distance算法或非Gaussian真实entropy，需要另立科学问题，但不是现有代码复现/文稿纠错的技术待办。
+
+独立证据
+results/identity_numeric_checks.json：120 covariance cases；entropy误差≤8.72e−15、correlation≤3.33e−16、generalizedEigenKL≤6.40e−14。
+results/actual_geometry_checks.json：8设置、8,000 score checks、160 cor(rbind())，frozen source hashes不变。
+code/verify_identities.py、code/check_actual_geometry.R 可实际重跑。
+基础定义对照：van Erven & Harremoës, Rényi Divergence and Kullback-Leibler Divergence, https://arxiv.org/html/1206.2459v2 （2026-10-08读取）；Gaussian特例由本文件直接完成平方推导并独立数值核对，不借未核对的网页注释当证明。

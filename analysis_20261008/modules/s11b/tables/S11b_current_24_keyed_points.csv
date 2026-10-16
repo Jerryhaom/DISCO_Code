@@ -1,0 +1,25 @@
+"branch","power","outcome","N_organ","r","P","independent_r"
+"recomputed_matrix_current_targets",0.5,"Correlation with age",18,0.563918855468475,0.0147883881629462,0.563918855468475
+"recomputed_matrix_current_targets",0.5,"C-index for mortality",18,0.744970876342601,0.0003892785335775,0.744970876342601
+"recomputed_matrix_current_targets",0.5,"C-index for disease",18,0.728821211314947,0.000601409448390366,0.728821211314946
+"recomputed_matrix_current_targets",1,"Correlation with age",18,0.560714207821022,0.0154923034436363,0.560714207821022
+"recomputed_matrix_current_targets",1,"C-index for mortality",18,0.739154738129822,0.000456911601092767,0.739154738129822
+"recomputed_matrix_current_targets",1,"C-index for disease",18,0.723400419878664,0.000691355300009868,0.723400419878664
+"recomputed_matrix_current_targets",1.5,"Correlation with age",18,0.557094400710591,0.0163190862725104,0.557094400710591
+"recomputed_matrix_current_targets",1.5,"C-index for mortality",18,0.732851254078045,0.000541077278146772,0.732851254078045
+"recomputed_matrix_current_targets",1.5,"C-index for disease",18,0.717459116375349,0.000802584182487437,0.717459116375349
+"recomputed_matrix_current_targets",2,"Correlation with age",18,0.553126991461686,0.0172649826280573,0.553126991461686
+"recomputed_matrix_current_targets",2,"C-index for mortality",18,0.726132817639279,0.000644707459387085,0.726132817639279
+"recomputed_matrix_current_targets",2,"C-index for disease",18,0.711062996106997,0.000938635642218733,0.711062996106997
+"recomputed_matrix_current_targets",2.5,"Correlation with age",18,0.548875874552407,0.0183260660855727,0.548875874552406
+"recomputed_matrix_current_targets",2.5,"C-index for mortality",18,0.719070954272742,0.000771028883656128,0.719070954272742
+"recomputed_matrix_current_targets",2.5,"C-index for disease",18,0.704278354007153,0.00110342868091198,0.704278354007152
+"recomputed_matrix_current_targets",3,"Correlation with age",18,0.544400050901232,0.0194981482566628,0.544400050901232
+"recomputed_matrix_current_targets",3,"C-index for mortality",18,0.711734372934486,0.000923509295211454,0.711734372934486
+"recomputed_matrix_current_targets",3,"C-index for disease",18,0.697170061633577,0.00130121132187687,0.697170061633577
+"recomputed_matrix_current_targets",3.5,"Correlation with age",18,0.539752771176787,0.0207767659849843,0.539752771176786
+"recomputed_matrix_current_targets",3.5,"C-index for mortality",18,0.704187426352102,0.00110579060739335,0.704187426352102
+"recomputed_matrix_current_targets",3.5,"C-index for disease",18,0.689799916196124,0.00153649646780761,0.689799916196124
+"recomputed_matrix_current_targets",4,"Correlation with age",18,0.53498104800975,0.0221572290617092,0.53498104800975
+"recomputed_matrix_current_targets",4,"C-index for mortality",18,0.696489009906092,0.00132161351168592,0.696489009906092
+"recomputed_matrix_current_targets",4,"C-index for disease",18,0.682225403150872,0.001813987827312,0.682225403150872

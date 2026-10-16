@@ -1,0 +1,198 @@
+[
+  {
+    "candidate": "table1/recompute_table1.R",
+    "original_source": "Results_final/02_primary_clinical/table1_sd_standardization/recompute_table1.R",
+    "original_sha256": "bae7341b423477590b9a45022c902046d22ea3a9b1e43596577eb60fe1f4b79e",
+    "candidate_sha256": "37af2d0fcb8d3050429151da0a0e0837ea48a1f943667c8b3eaaa7aae88a4cb4",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+  },
+  {
+    "candidate": "table1/prepare_approved_cohorts.R",
+    "original_source": "Results_final/02_primary_clinical/table1_sd_standardization/prepare_approved_cohorts.R",
+    "original_sha256": "2a769f22871a7f02af58b22a3f5afe53dde27355bceaca04b90ce902e5c0edf0",
+    "candidate_sha256": "7fbd805bb952cee5642479ee5a06aedead26bd07148e2438beddbb848ef65d3d",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+  },
+  {
+    "candidate": "table1/source_prepare.R",
+    "original_source": "Results_final/90_archive/sensitivity_analyses_20260924/run_DISCO_DM_table.R",
+    "original_sha256": "7649cd8af50bf51059d272f4a4f2b1d06d111364cfc23908e8bc3c4310cc3375",
+    "candidate_sha256": "e962d65638ca0d759bdf70ca09ce60669e6ebdb48f38718d0f8ed7359cca3bc4",
+    "adaptation": "extract preparation-only source blocks; remove unused historical fit/write loop; explicit controlled paths"
+  },
+  {
+    "candidate": "ipaq/run_IPAQ_sensitivity.R",
+    "original_source": "Results_final/02_primary_clinical/IPAQ_sensitivity/20261006/run_IPAQ_sensitivity.R",
+    "original_sha256": "1129ee820fbe52921e343cb19677adc71ad4976263b5a3d46bca4be3395bc215",
+    "candidate_sha256": "7f4d53e5fb352d7bbb56cdf935f3cd8b5f00cbab466dc91925c5eb0eda70deea",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+  },
+  {
+    "candidate": "ipaq/protocol_before_run.txt",
+    "original_source": "Results_final/02_primary_clinical/IPAQ_sensitivity/20261006/protocol_before_run.txt",
+    "original_sha256": "65cc84abacd3ff1e1459797e55d1a10f53f29c17f9234784db2f6171f08af3d3",
+    "candidate_sha256": "65cc84abacd3ff1e1459797e55d1a10f53f29c17f9234784db2f6171f08af3d3",
+    "adaptation": "none"
+  },
+  {
+    "candidate": "organ_cause/01_compute.R",
+    "original_source": "Results_final/05_organ_network/cause_specific_corrected_release_20261006/01_compute.R",
+    "original_sha256": "7eac4bf2e2b522c7ac6eeca5af3cf9ee7f4b48d0560e9acbee66a716c9d17dda",
+    "candidate_sha256": "2ed47fa22d5165c4a71fec83c56e7e465207a798697d4532d06ec02e65b876d5",
+    "adaptation": "source/data/output path dispatch; additionally conditional KM-transform PH diagnostics (no model or endpoint change)"
+  },
+  {
+    "candidate": "organ_cause/02_plot.R",
+    "original_source": "Results_final/05_organ_network/cause_specific_corrected_release_20261006/02_plot.R",
+    "original_sha256": "8cbb091bdab0b28d7a6a946dcbc708494a05e4bb00e3b492f4f2af9433b53806",
+    "candidate_sha256": "73a166d73c87598acfd145910cec6eb3c5cfb5ad8377dc740a8273f059b81c4e",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+  },
+  {
+    "candidate": "CIF/01_compute.R",
+    "original_source": "Results_final/03_multimodal_UKB/CIF_sensitivity_20261006/01_compute.R",
+    "original_sha256": "61068a54b808256caed092f8177237e208062aeff21336572efb6889d8633bf3",
+    "candidate_sha256": "169add511efc06157e1bb5ece41533d880faac88243a86f1bff1c65c5345e666",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "1ffc468c3e853e4a8172b4ae3504f8177dea05db8fd38ba42a1cbf48f07af75c"
+  },
+  {
+    "candidate": "CIF/02_plot.R",
+    "original_source": "Results_final/03_multimodal_UKB/CIF_sensitivity_20261006/02_plot.R",
+    "original_sha256": "b630a9589006c4fef3d0396c275b8db61a530dfdf11acdf4024cdfc16f42fda0",
+    "candidate_sha256": "a335702fcaf2a5ce7bb34597b3d358ac0755dc88b17b525c68d9070bfbc15adc",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "67079b5d4a938d1b73ff3e754fa8f2f132f4f124f9243be8a214ef4abf6f26a3"
+  },
+  {
+    "candidate": "CIF/PROTOCOL.txt",
+    "original_source": "Results_final/03_multimodal_UKB/CIF_sensitivity_20261006/PROTOCOL.txt",
+    "original_sha256": "40d8efea5a39b17024f5baf3b27784cf6ab13f407f82deb022542160ec21de13",
+    "candidate_sha256": "40d8efea5a39b17024f5baf3b27784cf6ab13f407f82deb022542160ec21de13",
+    "adaptation": "none"
+  },
+  {
+    "candidate": "nmr/nmr_dimension_diagnostic.R",
+    "original_source": "Results_final/09_figures_tables/full_manuscript_QA/20260926/tables/nmr_dimension_diagnostic.R",
+    "original_sha256": "48b7d211deb436d27a9a1d2fcf7e4e2b7ce54d2cbcd82823c990efa0feb0b0dc",
+    "candidate_sha256": "24a06b41c23c278bce1ff8f8f75ecff15a85daaef7b59a1cf3a650368ed3bbbe",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+  },
+  {
+    "candidate": "nmr/repair_nmr_core.R",
+    "original_source": "Results_final/09_figures_tables/full_manuscript_QA/20260926/tables/repair_nmr_core.R",
+    "original_sha256": "ebdedad49ab4c1a5289eb2574a43852b17291d7637327175ef800fe3ba14a309",
+    "candidate_sha256": "71cd1930936d3a287e16c78aef5c808fa9a694831ede44ac9d1f38cce74b78e9",
+    "adaptation": "source/data/output paths; verification N/events extracted from actual fitted rows instead of literal counts"
+  },
+  {
+    "candidate": "nmr/recalculate_downstream.R",
+    "original_source": "Results_final/09_figures_tables/full_manuscript_QA/20260926/consistency/nmr_downstream/recalculate_downstream.R",
+    "original_sha256": "50597845b7989b056aeb2c7ed2e3a75c69f9c7dfcb5d9220896720f35a88b22e",
+    "candidate_sha256": "976581d3b0dfba3a57643b7981787b8794126497fdb90075c7195062a6774616",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+  },
+  {
+    "candidate": "resources/exact_score.cpp",
+    "original_source": "Results_final/05_organ_network/corrected_organ/20260926/exact_score.cpp",
+    "original_sha256": "2c405c4d2f06278a1c62b6ed02adacda95a8d2ee38fa3ccebb25b716862ec834",
+    "candidate_sha256": "2c405c4d2f06278a1c62b6ed02adacda95a8d2ee38fa3ccebb25b716862ec834",
+    "adaptation": "none"
+  },
+  {
+    "candidate": "organ_70_30/01_prepare.R",
+    "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/01_prepare.R",
+    "original_sha256": "7d84412dd12e393a80c2f2f3973954c3bc0900ebeb3be08cda7ad11c5f557c7b",
+    "candidate_sha256": "99feffc57c28415160830a8a47e9d11e1bb06bbf331d36e920f2982c627a77a1",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "20798c57a407bd4c00e23e4a84fd8ecf961fc8124990dca330573595436c54d9"
+  },
+  {
+    "candidate": "organ_70_30/02_train_clocks.py",
+    "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/02_train_clocks.py",
+    "original_sha256": "b643a44886364846a95856a577d2de20c1ecc51d73839b4c4b30867187315870",
+    "candidate_sha256": "675eb865927064ce153daca18082d2f8f74f8141d1060c041e378e240c8c43c8",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained"
+  },
+  {
+    "candidate": "organ_70_30/03_DISCO_scores.R",
+    "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/03_DISCO_scores.R",
+    "original_sha256": "30eb53193eea1404b9d994fc2992eb9f3bd42fd848f7acb214157e30f5162c85",
+    "candidate_sha256": "30888925fa3f431eff8a597c6e00103b5ad3e6985768ecf391aab8cc833e7173",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "f488ff56b939efe26f7b75b69517f2b50bff018046d6d0d949e3c2ed8bb30578"
+  },
+  {
+    "candidate": "organ_70_30/04_compare.R",
+    "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/04_compare.R",
+    "original_sha256": "8e703a4131f8c62f186c64ff956a6a7f1954e98f36d1bbf513ea58358fe39082",
+    "candidate_sha256": "842c45758dcf8cf3540fe74879cb49dc3ba7818d105f0900504935d017068a6b",
+    "adaptation": "source/data/output path dispatch; explicit comparison-only frozen-input read path; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "ae083cd434864af0523bf7e610be004884150ef96f33fa95a01111cce89f821a"
+  },
+  {
+    "candidate": "organ_70_30/05_plot_d.R",
+    "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/05_plot_d.R",
+    "original_sha256": "e4320c29e06a98d0ff9c99302f82372cae66958a297074ea71f7674bd1a90416",
+    "candidate_sha256": "4709e05172c0352392aff366dab8ced61f18bf33cb7c87183687d521fb3d2c8c",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "2129cf547f50123d1285bc6f96f338054f47a660ba6bd297013f709c894e0be1"
+  },
+  {
+    "candidate": "organ_70_30/06_plot_matched.R",
+    "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/06_plot_matched.R",
+    "original_sha256": "6fa85bdf441f2fbccfd0155c8d97715eda3273a576b44ea452117c83868e9806",
+    "candidate_sha256": "3bac36f2c8f480e6e3acb5e36d2d533f7cdd0ed646a03747d1342816630817e5",
+    "adaptation": "source/data/output paths and input hash routing only; numerical formulas and plotting source retained; decode Rscript --file space escaping (2026-10-16)",
+    "candidate_sha256_before_path_fix_20261016": "2674d4064e0794a5a2388a8a6f3859e848b6aa667299114022f31d7424ef879e"
+  },
+  {
+    "candidate": "organ_70_30/PROTOCOL.txt",
+    "original_source": "Results_final/05_organ_network/organ_clock_comparison/20261006_strict_70_30/PROTOCOL.txt",
+    "original_sha256": "87d0d99a4f0094b1adee33557f2b9f5b19622c9aec6859d08b7290e98ac09e3d",
+    "candidate_sha256": "87d0d99a4f0094b1adee33557f2b9f5b19622c9aec6859d08b7290e98ac09e3d",
+    "adaptation": "none"
+  },
+  {
+    "candidate": "endpoint_utilities/rebuild_day_endpoints.R",
+    "original_source": "Results_final/03_multimodal_UKB/raw_endpoint_audit_20261006/rebuild_day_endpoints.R",
+    "original_sha256": "2cf4629c02fef3d4b3a7742dcc7851a83e3de628719952fed83a2684bce3ce9e",
+    "candidate_sha256": "2cf4629c02fef3d4b3a7742dcc7851a83e3de628719952fed83a2684bce3ce9e",
+    "adaptation": "none"
+  },
+  {
+    "candidate": "endpoint_utilities/test_day_endpoints.R",
+    "original_source": "Results_final/03_multimodal_UKB/raw_endpoint_audit_20261006/test_day_endpoints.R",
+    "original_sha256": "38264305d0036f45d2c3883b469cdf396d2b28b2fa1b9a345381007726bdfd50",
+    "candidate_sha256": "38264305d0036f45d2c3883b469cdf396d2b28b2fa1b9a345381007726bdfd50",
+    "adaptation": "none"
+  },
+  {
+    "candidate": "endpoint_utilities/day_endpoint_builder_README.txt",
+    "original_source": "Results_final/03_multimodal_UKB/raw_endpoint_audit_20261006/day_endpoint_builder_README.txt",
+    "original_sha256": "086d23c326241bae8490d572ada05e1594ebeded746fd6b3c444f15c8237455e",
+    "candidate_sha256": "086d23c326241bae8490d572ada05e1594ebeded746fd6b3c444f15c8237455e",
+    "adaptation": "none"
+  },
+  {
+    "candidate": "table1/data/Table1_analysis_sample_SD.csv",
+    "original_source": "Results_final/02_primary_clinical/table1_sd_standardization/20261006/Table1_analysis_sample_SD.csv",
+    "original_sha256": "183a8ea3870dc7193f329bcbf30d9b61eb6c29af999f403a41ec5911f51add3d",
+    "candidate_sha256": "183a8ea3870dc7193f329bcbf30d9b61eb6c29af999f403a41ec5911f51add3d",
+    "adaptation": "none"
+  },
+  {
+    "candidate": "table1/data/Table1_crude_C_index_details.csv",
+    "original_source": "Results_final/02_primary_clinical/table1_crude_cindex/20261006/Table1_crude_C_index_details.csv",
+    "original_sha256": "f32977f257aed5b9fe4aac768065102b07f74d5dfd692f94c28eb58a1a144326",
+    "candidate_sha256": "f32977f257aed5b9fe4aac768065102b07f74d5dfd692f94c28eb58a1a144326",
+    "adaptation": "none"
+  },
+  {
+    "candidate": "table1/data/Table1_existing_full_models.csv",
+    "original_source": "Results_final/09_figures_tables/manuscript_alignment/20260925/table1_model_export/Table1_existing_full_models.csv",
+    "original_sha256": "2ad63f25e7e2e53709d54373946a86728da28fb78c43b6d1f56a49dfba536288",
+    "candidate_sha256": "2ad63f25e7e2e53709d54373946a86728da28fb78c43b6d1f56a49dfba536288",
+    "adaptation": "none"
+  }
+]
