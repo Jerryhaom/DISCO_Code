@@ -34,7 +34,7 @@ Install the validated **DISCO4HD 0.3.2** commit below (an R source compiler is r
 
 ```r
 install.packages("remotes")
-remotes::install_github("Jerryhaom/DISCO4HD@08db67ce4999ccd3f7e2e7d855f33cc851305ce9")
+remotes::install_github("Jerryhaom/DISCO4HD@a83dec9b5c9d7db8c111a8e39c0a26688e7b3184")
 ```
 
 ```sh

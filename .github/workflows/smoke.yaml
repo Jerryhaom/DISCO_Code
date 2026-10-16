@@ -1,5 +1,7 @@
 name: Portable analysis smoke checks
 on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
 jobs:
   smoke:
     runs-on: ubuntu-latest
@@ -18,6 +20,8 @@ jobs:
       - run: Rscript run.R 01_method_definition/run_method_smoke_test.R
       - run: python -c "import ast,pathlib; [ast.parse(p.read_text()) for p in pathlib.Path('.').rglob('*.py')]"
       - name: Install validated DISCO4HD commit
-        run: Rscript -e 'install.packages("remotes", repos="https://cloud.r-project.org"); remotes::install_github("Jerryhaom/DISCO4HD@08db67ce4999ccd3f7e2e7d855f33cc851305ce9", upgrade="never")'
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+        run: Rscript -e 'install.packages("remotes", repos="https://cloud.r-project.org"); remotes::install_github("Jerryhaom/DISCO4HD@a83dec9b5c9d7db8c111a8e39c0a26688e7b3184", upgrade="never"); stopifnot(identical(packageDescription("DISCO4HD")$RemoteSha, "a83dec9b5c9d7db8c111a8e39c0a26688e7b3184"))'
       - run: Rscript run.R 01_method_definition/run_synthetic_demo.R
       - run: Rscript run.R 10_biomarker_calculator/run_example.R
